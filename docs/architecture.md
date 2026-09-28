@@ -6,7 +6,7 @@ Current design, revised 2026-09-25. This replaces the earlier implementation pla
 
 MindIE Agent enhances an existing Harness for NPU and infrastructure work. It does not supply its own foundation model, conversation harness, transcript hosting service or online knowledge API. Users work in their own business repositories and native tasks.
 
-A user explicitly invokes the plugin in a task. The first use offers community contribution (recommended), read-only knowledge, or later configuration. Recommendation is not consent. The choice persists; routine turns do not repeat onboarding. General remote-dev tools work without activating knowledge.
+A user explicitly invokes the plugin in a task. The first use fills only missing public destination, account and scope information, reusing prior approval. The configured experience loop runs automatically. Missing configuration, explicit disable and component failures are reported distinctly; none is an alternative read-only product tier. Legacy declined settings remain disabled until explicitly changed. General remote-dev tools work without activating knowledge.
 
 Knowledge is optional reference material. Agents choose whether to query, read or give a thumbs-up/down after actual use. There is no mandatory retrieval, report, vote or model-driven closing ceremony.
 
@@ -33,9 +33,10 @@ Grok Bot means the installed bot application, not Grok CLI. There is no routine-
 
 ```mermaid
 flowchart LR
-    A["Native task<br/>explicit plugin activation"] --> C{"Community contribution enabled?"}
-    C -->|No| R["Optional retrieval and remote tools"]
-    C -->|Yes| H["Bounded Stop notification<br/>public task increment only"]
+    A["Native task<br/>explicit plugin activation"] --> C{"Destination and task scope configured?"}
+    C -->|Missing| R["Report missing configuration<br/>reuse approved values"]
+    R --> C
+    C -->|Configured and enabled| H["Bounded Stop notification<br/>public task increment only"]
     H --> L["Local model organizes and redacts"]
     L --> P["Automatically propose a GitHub PR"]
     P --> B["Existing Grok Bot reviews and merges"]
@@ -46,7 +47,7 @@ flowchart LR
     F -.-> B
 ```
 
-When contribution is off, there is no Hook collection, redaction or organization model call, nor a capture archive. Read-only feed synchronization can still run.
+Missing configuration, explicit disable, scope mismatch and a component fault are distinct states, not successful alternative product modes. Explicit disable and legacy declined settings stop new collection; migration must not silently enable them. Task binding alone never establishes that capture or contribution completed. Retrieval and remote tools remain independently usable.
 
 When enabled, only the explicitly admitted native task and authorized project scope can contribute. Forks and new tasks have separate identities. Disable cancels unsent work; re-enable admits subsequent material, not an automatic replay of old history. Raw transcripts remain local and never become GitHub content.
 
@@ -82,7 +83,7 @@ Repeated useful experience may suggest a Skill, but automatic Skill extraction i
 
 ## Activation, execution and updates
 
-Native task identity, authorization, an in-flight operation, an MCP connection and a remote job have different lifetimes. Explicit authorization persists until disabled, paused for a failure or changed in scope. It does not expire merely because time passes or the runtime directory changes.
+Native task identity, authorization, an in-flight operation, an MCP connection and a remote job have different lifetimes. Explicit authorization persists until disabled or changed in scope. It does not expire merely because time passes or the runtime directory changes.
 
 Adapters track remote `main` commits now; release tracking is a later change. An update stages the complete adapter, Skills, Hooks and pinned runtime, verifies the selected native package and actually loaded resources, and atomically commits one generation. Every operation uses a coherent scripts/interpreter/configuration tuple.
 
