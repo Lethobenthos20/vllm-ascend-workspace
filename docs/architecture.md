@@ -39,7 +39,7 @@ flowchart LR
     C -->|Configured and enabled| H["Bounded Stop notification<br/>public task increment only"]
     H --> L["Harness parser selects public messages<br/>local rules redact and save the body"]
     L --> P["Automatically propose a GitHub PR"]
-    L -.-> M["Optional independently configured model<br/>title and retrieval summary only"]
+    L -.-> M["Adapter-owned summary model<br/>title and retrieval summary only"]
     M -.-> P
     P --> B["Existing Grok Bot reviews and merges"]
     B --> K["Public Markdown domain repository"]
@@ -66,8 +66,9 @@ storage, model input or publication; repository review cannot undo a secret
 uploaded in an earlier commit. Rule scanning cannot establish the publicness of
 proprietary meaning, so existing project authorization remains necessary.
 
-Only the title and retrieval summary may come from a separately configured
-model and reasoning effort, for example GPT-6-Luna with low effort. It cannot
+Only the title and retrieval summary may come from an adapter-owned model.
+The adapter maintains its model and effort choice (currently GPT-6-Luna with
+low effort for Codex); users do not configure a separate summary model. It cannot
 write the body, inherit the business model's reasoning settings or block capture/publication. With no supported channel,
 the introduction is a labeled source excerpt. Large summary input may use
 explicitly labeled first/last excerpts; the full body stays intact. One settled
