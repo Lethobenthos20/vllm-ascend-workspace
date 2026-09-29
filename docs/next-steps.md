@@ -25,9 +25,10 @@ limits. Preserve the following existing mechanisms:
 
 Codex body processing now uses deterministic public-message selection and local
 redaction. Do not reintroduce a model into body capture or increase its timeout
-to handle larger transcripts. Optional title/summary generation needs a separately
-supported non-thinking channel; the current acceptance account uses labeled source
-excerpts. Real native Codex tasks use gpt-6-luna/max in PowerShell and WSL.
+to handle larger transcripts. Optional title/summary generation selects its model
+and effort separately; GPT-6-Luna/low has completed real metadata calls in both
+PowerShell and WSL. Unsupported or failed calls retain labeled source excerpts.
+Real native business tasks use gpt-6-luna/max.
 
 Review and merge the recorded core and Codex candidates before checking ordinary
 main-branch update delivery. The isolated candidate profile deliberately uses a

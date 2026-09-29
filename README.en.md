@@ -3,7 +3,7 @@
 Domain context, remote execution tools, and a knowledge/experience/usefulness feedback loop for Ascend development.
 
 Use the [Codex](https://github.com/mindie-agent/mindie-agent-codex), [Kimi Code](https://github.com/mindie-agent/mindie-agent-kimi), or [Claude Code](https://github.com/mindie-agent/mindie-agent-cc) adapter in your own business repository.
-Knowledge and authorized contribution processing run locally; remote-dev provides remote execution. Codex selects and redacts public transcript messages without a body model. A separate non-thinking model may generate only the title and retrieval summary. Collection is off until explicitly enabled.
+Knowledge and authorized contribution processing run locally; remote-dev provides remote execution. Codex selects and redacts public transcript messages without a body model. An independently configured model may generate only the title and retrieval summary. The contribution choice persists across tasks and updates until explicitly changed; collection is off until first enabled.
 
 This repository contains [architecture](docs/architecture.md), [design principles](docs/design-principles.md)
 and [next steps](docs/next-steps.md). Component ownership and current evidence are listed in the [Chinese README](README.md).

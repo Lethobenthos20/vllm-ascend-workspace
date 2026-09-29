@@ -39,7 +39,7 @@ flowchart LR
     C -->|Configured and enabled| H["Bounded Stop notification<br/>public task increment only"]
     H --> L["Harness parser selects public messages<br/>local rules redact and save the body"]
     L --> P["Automatically propose a GitHub PR"]
-    L -.-> M["Optional non-thinking model<br/>title and retrieval summary only"]
+    L -.-> M["Optional independently configured model<br/>title and retrieval summary only"]
     M -.-> P
     P --> B["Existing Grok Bot reviews and merges"]
     B --> K["Public Markdown domain repository"]
@@ -67,8 +67,8 @@ uploaded in an earlier commit. Rule scanning cannot establish the publicness of
 proprietary meaning, so existing project authorization remains necessary.
 
 Only the title and retrieval summary may come from a separately configured
-non-thinking model. It cannot write the body, inherit the business model's
-reasoning settings or block capture/publication. With no supported channel,
+model and reasoning effort, for example GPT-6-Luna with low effort. It cannot
+write the body, inherit the business model's reasoning settings or block capture/publication. With no supported channel,
 the introduction is a labeled source excerpt. Large summary input may use
 explicitly labeled first/last excerpts; the full body stays intact. One settled
 body version gets at most one summary attempt, including across restarts.
@@ -128,7 +128,7 @@ The native adapters expose configuration and status; service installation runs o
 
 ## Delivery and acceptance
 
-Codex, Kimi and Claude Code have independent repositories and native acceptance. Current Codex business tests use gpt-6-luna / max in Windows PowerShell and WSL. This business setting never selects a metadata model: Codex body capture calls no model, and optional title/summary generation requires a separately configured non-thinking channel. Kimi model acceptance is currently deferred; Claude Code's configured model must be named accurately in its own evidence.
+Codex, Kimi and Claude Code have independent repositories and native acceptance. Current Codex business tests use gpt-6-luna / max in Windows PowerShell and WSL. This business setting never selects metadata effort: Codex body capture calls no model, and optional title/summary generation uses a separately configured model and effort. GPT-6-Luna / low has completed real metadata calls on both platforms. Kimi model acceptance is currently deferred; Claude Code's configured model must be named accurately in its own evidence.
 
 Windows hardware is available for current PowerShell and WSL acceptance. Earlier macOS evidence remains scoped to its recorded versions and behavior. Windows CI does not prove native Stop delivery, actual NPU execution or public contribution: those boundaries require the controlled native run.
 
