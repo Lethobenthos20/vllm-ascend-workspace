@@ -198,3 +198,14 @@ Windows/WSL 各 33 项受影响检查通过，覆盖长期授权、新旧摘要�
 未重跑设备任务，也未手工调用摘要或 Stop。实际数据库只读核验得到 `capture=organized`、
 `summary_status=complete`，摘要为 Luna/low 生成的内容，正文模型调用为零，正文哈希与
 摘要前保存的哈希一致。两边均直接复用原有贡献选择，没有重新配置目标或授权范围。
+
+正常空闲贡献随后自动生成 Windows [PR34](https://github.com/mindie-agent/knowledge-vllm-ascend/pull/34)
+和 WSL [PR35](https://github.com/mindie-agent/knowledge-vllm-ascend/pull/35)。逐字读取回执指向的
+远端文件，确认标题/摘要与实际模型输出一致，正文哈希与摘要前一致。
+确认的 commit 分别为 `1f139d66b4c2f40bea89ee3f5dd9ef394167c3bc`、
+`2700de5d5dc1c8bb06cb7cd085dab54ea60059c6`，没有手工触发摘要或发布。
+
+该提交的 [Windows/Linux CI](https://github.com/mindie-agent/mindie-agent-codex/actions/runs/36507634586)
+最终全部通过，Windows 279 项含 5 跳过。Windows 首次运行在未修改的 PowerShell Stop 包装
+测试出现 5 秒超时；新增授权/摘要检查当时已通过。本机同组 5 项重新执行通过，同提交 CI
+重跑也通过。原失败日志保留；这些结果不能证明该启动耗时波动的根因已经找到或消除。
