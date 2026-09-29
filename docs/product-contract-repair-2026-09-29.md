@@ -78,6 +78,17 @@ WSL 使用独立目录及虚拟环境，依赖按发布提交安装。
 WSL 摘要初次运行缺少 CLI 路径及默认登录，复用既有验收 CLI 和已授权 profile 后成功；
 没有要求用户重复登录，也没有修改全局配置。Kimi/Claude 原生模型端到端验收未在本轮执行。
 
+
+最终授权中断修复补测：Windows 和 WSL 各 72 项核心检查通过，覆盖授权配置、并发写入、
+授权故障及后台撤销。WSL 在同一批固定提交上另通过 Codex 授权 18 项、Kimi 入口 27 项、
+Claude 入口 8 项，Codex 启用/分享另 16 项通过。Windows 首次直接调用授权模块时漏传
+测试要求的 `MINDIE_KIMI_REPO`，明确失败；补齐已有固定仓库路径后授权和分享共 34 项通过。
+
+启用过程中如果配置写完而授权文件尚未写完，重试现在复用同一次关闭记录和请求范围确定的
+授权起点，不添加用户配置项或新的状态文件。首次配置也适用；真正再次关闭会保存新的选择时间，
+随后启用才建立新起点。相同临时配置连续启用四次，旧复查快照产生四个边界，最终修复只产生一个；
+授权尚未完成时始终不采集。
+
 ## 独立审查与发布
 
 真实 Grok 4.7 / xhigh 已完成第一轮七仓库审查，保留[原始审查报告](reviews/grok-product-contract-2026-09-29.md)
@@ -85,7 +96,7 @@ WSL 摘要初次运行缺少 CLI 路径及默认登录，复用既有验收 CLI 
 
 | 审查发现 | 处理 |
 | --- | --- |
-| 授权文件暂时损坏时重复启用会换代 | 核心区分故障与明确撤销；同一贡献选择也不重写文件；旧草稿和边界保留 |
+| 授权故障或启用被中断时重复操作会换代 | 核心区分故障与明确撤销；同一次关闭记录的启用重试复用起点；同一贡献选择不重写文件；旧草稿和边界保留 |
 | Hook 等待完整 JSON | 保留完整身份校验和宿主期限，拒绝凭半截路径开始采集；完整大对象已做进程测试；核心 CLI 的旧 128 KiB 门槛已移除 |
 | 扫描器非零退出、坏报告不恢复 | 统一进入同一通知的自动重试；游标不先行，原始秘密不进入诊断 |
 | 坏行拖住整个任务 | 三个正式解析器隔离单条坏记录并保存位置诊断，好消息照常继续；半写行仍等待补全 |
@@ -99,16 +110,21 @@ WSL 摘要初次运行缺少 CLI 路径及默认登录，复用既有验收 CLI 
 已保存的值。二者是不同用户意图，分别测试。正文通过规则选择和本地脱敏处理，模型只生成
 标题和摘要，不再引入另一套正文整理流程。
 
-最终提交和托管检查（每个适配器固定使用同一知识核心 `465cac9`）：
+最终提交和托管检查（每个适配器固定使用同一知识核心 `ec05a65`）：
 
 | 仓库 | 提交 | CI |
 | --- | --- | --- |
-| knowledge | `465cac9342ed4a78284e99e89e5c6df80f7bedd4` | [三系统组件](https://github.com/mindie-agent/knowledge/actions/runs/36537212344)、[Python 3.11](https://github.com/mindie-agent/knowledge/actions/runs/36537212280) |
-| Codex | `3d73c1e3966201720e7e009e80b91a8ba672ad93` | [Windows/Linux](https://github.com/mindie-agent/mindie-agent-codex/actions/runs/36537726834) |
-| Kimi | `930ff92d6d9d0385f038435c3393ea3777417bbf` | [三系统组件](https://github.com/mindie-agent/mindie-agent-kimi/actions/runs/36537223975) |
-| Claude | `69d2b3bfa14c91c5d715419103058e6eb1086ea0` | [三系统组件](https://github.com/mindie-agent/mindie-agent-cc/actions/runs/36537229073) |
+| knowledge | `ec05a65c6841ca77ec55c7ea32232efa6699f342` | [三系统组件](https://github.com/mindie-agent/knowledge/actions/runs/36539264841)、[Python 3.11](https://github.com/mindie-agent/knowledge/actions/runs/36539264802) |
+| Codex | `d59d35742724dd183765ac295cc827b1f81e8a0a` | [Windows/Linux](https://github.com/mindie-agent/mindie-agent-codex/actions/runs/36539353882) |
+| Kimi | `fc9f97892e53fa9489dc1d5ce4a71a2a43edc50f` | [三系统组件](https://github.com/mindie-agent/mindie-agent-kimi/actions/runs/36539360621) |
+| Claude | `43799ed1a1ad1c0edf0a9c84e26bbb5cbefe9ec9` | [三系统组件](https://github.com/mindie-agent/mindie-agent-cc/actions/runs/36539365619) |
 
-最终 Grok 复查结论待附。
+[第二轮原始复查](reviews/grok-product-contract-recheck-2026-09-29.md)仅做静态分析，
+确认原九项中的其余修复，并留下“明确关闭后的启用中断重试仍换代”这一项。最终核心
+`ec05a65` 修复该项；原报告保留其当时结论，不改写成通过。
+[最终定点复核](reviews/grok-authorization-final-2026-09-29.md)继续使用同一 Grok 4.7 / xhigh
+会话，结论为该项静态上已解决，覆盖首次配置、重复重试、完成后再次关闭、目录别名和授权故障。
+该轮没有执行测试，实测证据由上述本地回归和最终提交 CI 提供；不把审查结论扩张为全产品无缺陷。
 
 关联代码：
 [knowledge #56](https://github.com/mindie-agent/knowledge/pull/56)、
