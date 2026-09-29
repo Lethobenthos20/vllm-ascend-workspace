@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/brand/mindie-agent-logo.png" alt="MindIE Agent logo" width="128" height="128">
+</p>
+
 # MindIE Agent
 
 Domain context, remote execution tools, and a knowledge/experience/usefulness feedback loop for Ascend development.
