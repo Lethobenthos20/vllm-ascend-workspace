@@ -1,11 +1,13 @@
 # Next steps
 
-Updated 2026-09-25. Follow the [nine design principles](design-principles.md),
+Updated 2026-09-29. Follow the [nine design principles](design-principles.md),
 [architecture](architecture.md) and [lifecycle contract](harness-boundary-and-lifecycle.md).
 [Implementation status](implementation-status.md) separates completed evidence
 from work in progress. Earlier release reports retain their historical results.
 
-The authorized implementation now focuses on three existing mechanisms:
+The [Codex public-transcript acceptance](codex-public-transcript-acceptance-2026-09-29.md)
+records the implemented Windows/WSL work, exact candidate commits and remaining
+limits. Preserve the following existing mechanisms:
 
 1. Keep submitted knowledge authoritative on the remote. Retain only unsent
    additions locally, apply them to the current own PR or merged main, and never
@@ -21,17 +23,20 @@ The authorized implementation now focuses on three existing mechanisms:
    using incremental processing. Do not introduce user-managed batches,
    compulsory draft administration or a new scheduling service.
 
-Use real macOS environments to verify disconnection/recovery, continued work after
-remote redaction, long records and contribution-off behavior. Component tests are
-supporting evidence, not native acceptance. Codex uses gpt-5.6-luna/max, Kimi uses
-K3/max, and Claude Code uses the user's configured DSV4 stack. Preserve original
-failures and do not manufacture public experience or Bot events to claim a pass.
+Codex body processing now uses deterministic public-message selection and local
+redaction. Do not reintroduce a model into body capture or increase its timeout
+to handle larger transcripts. Optional title/summary generation needs a separately
+supported non-thinking channel; the current acceptance account uses labeled source
+excerpts. Real native Codex tasks use gpt-6-luna/max in PowerShell and WSL.
 
-Codex [PR11](https://github.com/mindie-agent/mindie-agent-codex/pull/11) was still
-open at `2fd63469` when checked on 2026-09-25; its native Stop acceptance and
-temporarily held production updater must be resolved explicitly before declaring
-release completion. A historical trusted Hook does not prove a changed Hook is trusted.
+Review and merge the recorded core and Codex candidates before checking ordinary
+main-branch update delivery. The isolated candidate profile deliberately uses a
+manual update schedule, so it does not establish current Windows/WSL OS scheduler
+delivery. Keep native Hook trust, automatic contribution and feed synchronization
+as separately observed boundaries. A historical trusted Hook does not prove a
+changed Hook is trusted.
 
-Windows remains part of the first-release target; the user will perform dedicated
-Windows hardware acceptance after merge. Old business Skills, profiling analysis,
-automatic Skill extraction and additional domains/Harnesses remain deferred.
+Kimi native model acceptance is deferred; Grok has no adapter in this scope.
+Other harnesses need their own transcript projection and native evidence.
+Earlier macOS and Claude results retain their original scope. Old business Skills,
+profiling analysis, automatic Skill extraction and additional domains remain deferred.

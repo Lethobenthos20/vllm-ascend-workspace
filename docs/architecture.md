@@ -1,6 +1,6 @@
 # MindIE Agent architecture
 
-Current design, revised 2026-09-25. This replaces the earlier implementation plan from Issue #195; history remains in Git. The [nine inherited VAWS principles](design-principles.md) govern every adapter. [Implementation status](implementation-status.md) records evidence separately; the simplifications below are requirements, not claims of completed acceptance.
+Current design, revised 2026-09-29. This replaces the earlier implementation plan from Issue #195; history remains in Git. The [nine inherited VAWS principles](design-principles.md) govern every adapter. [Implementation status](implementation-status.md) records evidence separately; the simplifications below are requirements, not claims of completed acceptance.
 
 ## Product and normal use
 
@@ -37,8 +37,10 @@ flowchart LR
     C -->|Missing| R["Report missing configuration<br/>reuse approved values"]
     R --> C
     C -->|Configured and enabled| H["Bounded Stop notification<br/>public task increment only"]
-    H --> L["Local model organizes and redacts"]
+    H --> L["Harness parser selects public messages<br/>local rules redact and save the body"]
     L --> P["Automatically propose a GitHub PR"]
+    L -.-> M["Optional non-thinking model<br/>title and retrieval summary only"]
+    M -.-> P
     P --> B["Existing Grok Bot reviews and merges"]
     B --> K["Public Markdown domain repository"]
     K --> S["Local synchronization and rebuildable index"]
@@ -55,7 +57,24 @@ The Hook only admits a bounded notification and exits normally. It must not requ
 
 Task length, accumulated experience body size and total corpus size are not admission limits. Long tasks use incremental reads, saved progress and bounded individual model calls; the component must continue through all admitted material without truncating the remainder or requiring a new user task. Bound the memory, concurrency and time of each operation, not the lifetime of useful work. Internal processing chunks and submission coalescing are implementation details, not user-managed batches or fixed experience counts.
 
-The local model makes a faithful public record of actual task actions and observations, retaining useful commands, parameters, recorded errors, outputs, public evidence and uncertainty. It does not have to summarize lessons, prescribe advice, identify a root cause or force a failure-fix-success story. Title and summary are neutral retrieval introductions; the detailed body carries the record. Details not mentioned in the source are omitted: do not infer a missing execution history and do not add an unknowns checklist. Preserve uncertainty when the source itself states it. Do not promote a reported result into a stronger verification claim. Corrections preserve the earlier and later observations without inventing causation. Internal reasoning, injected instructions, credentials and unrelated history are excluded.
+The body is the ordered, locally redacted public conversation. Codex implements
+this first: user input, public assistant progress and final answers survive;
+tool calls/results, hidden reasoning, injected instructions and native duplicate
+wrappers do not. Compaction uses no model and does not shorten public messages.
+Body and cursor commit together. Gitleaks plus explicit privacy rules run before
+storage, model input or publication; repository review cannot undo a secret
+uploaded in an earlier commit. Rule scanning cannot establish the publicness of
+proprietary meaning, so existing project authorization remains necessary.
+
+Only the title and retrieval summary may come from a separately configured
+non-thinking model. It cannot write the body, inherit the business model's
+reasoning settings or block capture/publication. With no supported channel,
+the introduction is a labeled source excerpt. Large summary input may use
+explicitly labeled first/last excerpts; the full body stays intact. One settled
+body version gets at most one summary attempt, including across restarts.
+Claims remain attributed and uncertainty is preserved. Other harnesses require
+their own projection and acceptance; their existing implementation is not proof
+that this Codex path works.
 
 Publishing uses the already prepared public body. Creating or updating the PR is mechanical and does not need another model rewriting pass. The existing Bot reviews content rather than manufacturing a second corpus-processing pipeline.
 
@@ -109,9 +128,9 @@ The native adapters expose configuration and status; service installation runs o
 
 ## Delivery and acceptance
 
-Codex, Kimi and Claude Code have independent repositories and native acceptance. Codex model tests use gpt-5.6-luna / max. The user authorized Kimi K3 / max for Kimi native acceptance. Claude Code runs on the local configured model, which must be named accurately in evidence.
+Codex, Kimi and Claude Code have independent repositories and native acceptance. Current Codex business tests use gpt-6-luna / max in Windows PowerShell and WSL. This business setting never selects a metadata model: Codex body capture calls no model, and optional title/summary generation requires a separately configured non-thinking channel. Kimi model acceptance is currently deferred; Claude Code's configured model must be named accurately in its own evidence.
 
-macOS is the active hardware environment. Windows is part of the intended first release, with real Windows hardware supplied by the user after the adapter changes merge into main. Windows acceptance is not a gate for merging the pre-release implementation. CI passing on Windows does not complete that acceptance.
+Windows hardware is available for current PowerShell and WSL acceptance. Earlier macOS evidence remains scoped to its recorded versions and behavior. Windows CI does not prove native Stop delivery, actual NPU execution or public contribution: those boundaries require the controlled native run.
 
 Development checks, native installation, real Hook delivery, a real public PR/Bot merge, and usefulness in a new task are recorded separately. A registry success, connected MCP panel or old revision's evidence cannot stand for the final implementation.
 
