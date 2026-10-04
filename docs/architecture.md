@@ -2,7 +2,7 @@
 
 Current design, revised 2026-10-04. This replaces the earlier implementation plan from Issue #195; history remains in Git. The [nine inherited VAWS principles](design-principles.md) govern every adapter. [Implementation status](implementation-status.md) records evidence separately; the simplifications below are requirements, not claims of completed acceptance.
 
-The [complete-material design](transcript-reuse-architecture-2026-10-04.md) defines the current transcript package, ReMe/LangMem boundaries and explicit history import. The implementation is merged; formal installation, public-feed consumption and native acceptance are recorded separately. The earlier native test does not establish the new public Stop-to-Grok contribution loop.
+The [complete-material design](transcript-reuse-architecture-2026-10-04.md) defines the current transcript package, ReMe/LangMem boundaries and explicit history import. The implementation is merged; formal installation, public-feed consumption and native acceptance are recorded separately. The earlier native test retains its local-only boundary. A [later authorized synthetic sample](knowledge-review-2026-10-04/evidence/stage5/review.md) separately completed normal Stop, automatic public PR, the existing Grok review/merge and independent HTTPS consumption.
 
 ## Product and normal use
 

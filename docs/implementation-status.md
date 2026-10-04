@@ -1,5 +1,11 @@
 # 统一实施进度
 
+## 2026-10-05：纯合成任务公开闭环通过
+
+用户在上一阶段之后授权新建纯合成目录。正式 Codex `f35ab6f` / core `929bdcb` 的一次原生任务经正常 Stop、一次必要索引和默认 300 秒静默窗口自动创建 [PR39](https://github.com/mindie-agent/knowledge-vllm-ascend/pull/39)；现有 Grok 自然处理后合入 `9b7966f`。主任务核对了 Bot 消息、GitHub 精确 head/checks 与合入 tree，没有手工通知 Bot 或执行合入。独立消费者正常 HTTPS 同步该 main，预定查询找到新任务，并核对全部 375 字节正文及 SHA256；2 shards 的原始假设、4 shards 的纠正和硬件未验证表述均保留，重复同步 unchanged，消费者模型与采集/整理/outbox 计数为 0。
+
+此证据只覆盖新合成目录和首次激活之后的合格公开 final_answer，启动 prompt 与此前 commentary 未被采集。正式 owner 后来也同步到该 main，任务已指向公开 revision；历史 outbox 仍 submitted，未改称 merged。索引为 7,743 input / 303 output tokens（20,425 ms）；业务 turn 的 222,214 input / 1,009 output tokens 单独记账。完整来源、费用和九原则审查见 [Stage5 验收](knowledge-review-2026-10-04/evidence/stage5/review.md)。下节保留 Stage1–4 的当时状态；后续授权与成功不倒填为此前已经完成，也不扩展为真实硬件或普遍质量证明。
+
 ## 2026-10-04：完整材料实现合入与分层验收
 
 本节与[当前宏观架构](transcript-reuse-architecture-2026-10-04.md)、[分阶段实施证据](knowledge-review-2026-10-04/evidence/implementation-review.md)优先于下文旧摘要合同；最终部署回读发生于北京时间 10 月 5 日。日常 Stop 与显式历史导入复用同一管线：Markdown 保存完整获准材料，LangMem 生成必要的块入口和短导航，ReMe 提供本地检索。必要索引失败阻止发布，不降级为首尾摘录；原文继续本地保留。
