@@ -1,5 +1,7 @@
 # Incremental index worker and direct-cutover review
 
+This record preserves the earlier implementation and Stage1–4 evidence at their original observation times. Subsequent authorization and the final-f35 public synthetic loop are recorded separately in [Stage5](../stage5/review.md); earlier gaps are not rewritten as earlier success.
+
 Date: 2026-10-04. Scope: the LangMem worker/outcome ledger, deletion of the legacy organizer path, Engine/CLI lifecycle changes, Codex runtime acceptance probe, and affected mechanism tests. This review is tied to the source hashes below. The parent task still owns review and acceptance of the complete integrated product and its external deployment.
 
 Principles re-read from the current primary workspace: `docs/design-principles.md`, HEAD `c666e597c8690f7f7c141e0c04ae29e9a0484de7` plus the current uncommitted principle 9 and development-review expansions. File SHA-256 `15b4b58385846051464c27d06922ad0353bdd6a4031b619ff248c3a65c179741`, Git blob `9b21e6ae87ac96ff8bdacc3f4f546384e111a184`. The previous `bbe8...` hash is not the reviewed current text.

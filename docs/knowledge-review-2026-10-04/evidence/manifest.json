@@ -1,7 +1,7 @@
 {
   "schema": "mindie-phased-evidence/1",
   "date": "2026-10-04",
-  "scope": "Initial research, implementation and pre-final-candidate snapshots remain historical. Final deployment records merged exact trees, formal installation and host trust, one observed existing scheduler sync, saved Grok configuration and independent public GitHub consumption. New public Stop-to-PR-to-Grok event acceptance remains unverified.",
+  "scope": "Stages 1-4 retain their original research, failure, authorization and deployment observations. Stage5 separately records the later user-authorized new synthetic task completing normal native Stop, indexing, automatic public PR, naturally observed Grok review/merge and independent public HTTPS consumption at exact versions.",
   "principles": {
     "sha256": "15b4b58385846051464c27d06922ad0353bdd6a4031b619ff248c3a65c179741",
     "tracked_head": "c666e597c8690f7f7c141e0c04ae29e9a0484de7",
@@ -526,9 +526,9 @@
   "artifacts": {
     "AGENTS.md": "73e76d7dff76dd7aec5cadb3ad2beca7810828fca9e50121d9a44b4529b02310",
     "docs/README.md": "f6c9f5af9de3d7c75c325ff832c7bcd38c13733fadcea0c889d67b2e752d0993",
-    "docs/architecture.md": "2f830443a3b3fc9e51d469ffbd19c2b7b36036a86e459de19b5c6dd03acb1da7",
+    "docs/architecture.md": "264b37f5766eb292f54abe3db005f49b9f8d4340d6965aadf914b21b725375c6",
     "docs/design-principles.md": "db1fadfb34b46ff49e6e2a113b69c5b684b8f9f13be118bd037f574851b7c98d",
-    "docs/implementation-status.md": "ed6a5083f6dfc98cc2d28d284d43a10a3ab79552448ce543fda6a854d2e8daf7",
+    "docs/implementation-status.md": "431dc70d97adf81c0b56cdeb9036e32417093b8a11133e43013f478c442d3698",
     "docs/knowledge-experience-design-2026-10-04.md": "967596ea4d8f6b0c566ad1aeec763d277990624df7561767eed6f34933dbad5f",
     "docs/knowledge-experience-evaluation-2026-10-04.md": "376a9eba5e42fb3332e478109b72edff25eb701e7eda2b5b3ad2ec216941e3b6",
     "docs/knowledge-experience-review-2026-10-04.md": "5398105244ec0a87440afba23905bd77df7da47548f86146e68a979e69106279",
@@ -540,13 +540,13 @@
     "docs/knowledge-review-2026-10-04/evidence/delivery/results.json": "c99b4686befde9a50b1b243389e637071af756aa20bd7acd61e11d08b28a9559",
     "docs/knowledge-review-2026-10-04/evidence/formal-deployment.json": "82cee704c3f1f9171ebdff484bf045c497894c1d2737b515e269d1648a67cce3",
     "docs/knowledge-review-2026-10-04/evidence/grok-format-cutover.json": "a021ca1f526f7df6141fb1ec2d4c150607c2f19eab703a2bc9310701b9968c2e",
-    "docs/knowledge-review-2026-10-04/evidence/implementation-review.md": "e43a411ce80a4738b2f1a0afd59fc505839352e1d7462de1c60c777dd5074a04",
+    "docs/knowledge-review-2026-10-04/evidence/implementation-review.md": "8e590575ccc104636e415cce7dc11744120c47c4d7cca6237046dd52c84d484b",
     "docs/knowledge-review-2026-10-04/evidence/input/probe_input.py": "8831e533499ea97bbc935db0fdb73683a476b559713b8b1cf6480d7461a9f813",
     "docs/knowledge-review-2026-10-04/evidence/input/results.json": "24c089b67e23ea6740909c406d90a6333c8508888e1c8346d07037b2e43bd3d9",
     "docs/knowledge-review-2026-10-04/evidence/native-local-acceptance.json": "18e793922c10fbc3e8ec3ec59f1230583afbe73c9775b71b81db370655bee419",
     "docs/knowledge-review-2026-10-04/evidence/organizer/README.md": "97adf8d26704251e803146bb1512d0ba4ded6ea358b80f935505ca2f3d2e217b",
     "docs/knowledge-review-2026-10-04/evidence/organizer/frameworks.md": "6c4a0620ed2dd049031a2c8ecd61f0617f4b6cd81d7eacc65293c77ba886bb2f",
-    "docs/knowledge-review-2026-10-04/evidence/organizer/implementation-review.md": "b0f343849374501ab0d35825561521e0c41474b641d787f5cb32cb28e1342730",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/implementation-review.md": "2ea46f623effaca6dd44689f78d6700c95fda3f15aac6d55afc151bc75a24008",
     "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/README.md": "3523a7f069bb6ed3969800af58e2750469327c45346d964ddfab91f3b1489017",
     "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/first-run-results.json": "9dec3c2346e8df6ef53a318f0f46176ecf447bca2e4baf5652bc1cca2ef9e123",
     "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/resolved-requirements.txt": "424c394da45e57f4d3fe987251c6a40f6f774da430b500ae3b7422900f44b541",
@@ -556,46 +556,43 @@
     "docs/knowledge-review-2026-10-04/evidence/organizer/results.json": "3163a53cc14a2dfa52c222970321fc03110fb8857bc6257734f9c233d45c26a3",
     "docs/knowledge-review-2026-10-04/evidence/public-github-consumer.json": "5bc760e3a37022fc3a9a71a340e5a157979c0f2f6b2df8e7c21b5fc6f7befaaa",
     "docs/knowledge-review-2026-10-04/evidence/research-reme-ace-claudemem.md": "585a25339d08ff9d41bccc7af72fbab7792903c7cd1647e3dbfd7411c0d57f9c",
-    "docs/transcript-reuse-architecture-2026-10-04.md": "386def717ad7dadc52955236ea993430948331d2f49bf3ff50e213e592ef0a9c"
+    "docs/knowledge-review-2026-10-04/evidence/stage5/consumer.json": "b0fc29505a1a7c99e35895dd0d65f0f18633d0e506d18e7170427737a18d0243",
+    "docs/knowledge-review-2026-10-04/evidence/stage5/grok.json": "6e41f880ef80ae3da02507805a79f16599ed192b9b7b32e59b2f4bef62b68aba",
+    "docs/knowledge-review-2026-10-04/evidence/stage5/producer.json": "347563120d5d2fa2b9f9da7c6ff57ba347a29563c22187d9edfd52beab5684af",
+    "docs/knowledge-review-2026-10-04/evidence/stage5/review.md": "5e15e29afb46f760f2d8594c9c1478406fce14b0456e2cc13b1be59aa25adcdb",
+    "docs/transcript-reuse-architecture-2026-10-04.md": "93243ab40442a92045bd5b0255e9333d1be1cde5854e64d9f5ee9dd398ae96c5"
   },
   "validation": {
     "json_parse": {
       "status": "passed",
-      "files": 11,
+      "files": 4,
       "scope": "Existing added, modified or renamed UTF-8 files relative to the canonical integration base, plus untracked UTF-8 files; unchanged historical upstream files are outside this PR review."
     },
     "python_ast": {
-      "status": "passed",
-      "files": 4,
-      "scope": "Syntax only for PR-scope Python files; research probes were not rerun."
+      "status": "not_applicable",
+      "files": 0,
+      "scope": "Stage5 PR-scope Python files only; none changed, and historical research probes were not rerun."
     },
     "local_links": {
       "status": "passed",
-      "markdown_files": 17,
-      "checked": 83,
+      "markdown_files": 6,
+      "checked": 52,
       "missing": [],
       "scope": "Existing added, modified or renamed UTF-8 files relative to the canonical integration base, plus untracked UTF-8 files; unchanged historical upstream files are outside this PR review."
     },
     "external_links": {
-      "distinct_references": 174,
-      "scope": "Retained primary-source citations were not all refetched; fixed acceptance JSON bytes were verified from the named Git commit."
+      "distinct_references": 53,
+      "scope": "URLs in Stage5 changed Markdown; actual PR39/Grok/consumer sources were read, but unchanged older primary-source citations were not refetched."
     },
     "public_data_scan": {
       "status": "reviewed findings; no unresolved findings",
       "validator_commit": "929bdcb918f2207aea38b02a14bd8e6219fabac4",
-      "checked_text_files": 34,
+      "checked_text_files": 10,
       "scope": "Existing added, modified or renamed UTF-8 files relative to the canonical integration base, plus untracked UTF-8 files; unchanged historical upstream files are outside this PR review. Includes explicit home-directory and raw-transcript path checks; product scan rules are unchanged.",
-      "canonical_base_commit": "8275bd4819b9d9f64adafc442f0c1da468775c6f",
-      "mechanical_findings": 66,
+      "canonical_base_commit": "24a1f0f9b2e1b38751f890dc3664ae5c0e31abb3",
+      "mechanical_findings": 7,
       "reviewed_finding_classes": {
-        "retrieval_metric_not_host": 3,
-        "recorded_synthetic_redaction_placeholder": 2,
-        "repository_evidence_path": 14,
-        "public_npm_package_version": 2,
-        "public_component_names": 1,
-        "public_source_url": 42,
-        "declared_synthetic_key_boundary_canary": 1,
-        "public_reme_version": 1
+        "repository_evidence_path": 7
       },
       "machine_path_or_raw_transcript_references": 0,
       "unresolved_findings": 0
@@ -621,45 +618,21 @@
   },
   "integration_review": {
     "canonical_repository": "mindie-agent/mindie-agent",
-    "canonical_base_ref": "upstream/main",
-    "canonical_base_commit": "8275bd4819b9d9f64adafc442f0c1da468775c6f",
-    "integrated_candidate_before_final_evidence": "e4dd566586e8b905eb5dd25b85a077cfbe4238fd",
+    "canonical_base_ref": "verified canonical main at Stage5 start",
+    "canonical_base_commit": "24a1f0f9b2e1b38751f890dc3664ae5c0e31abb3",
+    "integrated_candidate_before_final_evidence": "24a1f0f9b2e1b38751f890dc3664ae5c0e31abb3",
     "review_phase": "final-review",
     "scope": "Existing added, modified or renamed UTF-8 files relative to the canonical integration base, plus untracked UTF-8 files; unchanged historical upstream files are outside this PR review.",
     "paths": [
-      "AGENTS.md",
-      "docs/README.md",
       "docs/architecture.md",
-      "docs/design-principles.md",
       "docs/implementation-status.md",
-      "docs/knowledge-experience-design-2026-10-04.md",
-      "docs/knowledge-experience-evaluation-2026-10-04.md",
-      "docs/knowledge-experience-review-2026-10-04.md",
-      "docs/knowledge-framework-selection-2026-10-04.md",
-      "docs/knowledge-review-2026-10-04/evidence/codex-final-ci.json",
-      "docs/knowledge-review-2026-10-04/evidence/delivery/RUN.txt",
-      "docs/knowledge-review-2026-10-04/evidence/delivery/framework-comparison.md",
-      "docs/knowledge-review-2026-10-04/evidence/delivery/probe_delivery.py",
-      "docs/knowledge-review-2026-10-04/evidence/delivery/results.json",
-      "docs/knowledge-review-2026-10-04/evidence/formal-deployment.json",
-      "docs/knowledge-review-2026-10-04/evidence/grok-format-cutover.json",
       "docs/knowledge-review-2026-10-04/evidence/implementation-review.md",
-      "docs/knowledge-review-2026-10-04/evidence/input/probe_input.py",
-      "docs/knowledge-review-2026-10-04/evidence/input/results.json",
       "docs/knowledge-review-2026-10-04/evidence/manifest.json",
-      "docs/knowledge-review-2026-10-04/evidence/native-local-acceptance.json",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/README.md",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/frameworks.md",
       "docs/knowledge-review-2026-10-04/evidence/organizer/implementation-review.md",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/README.md",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/first-run-results.json",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/resolved-requirements.txt",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/results.json",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/spike.py",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/probes.py",
-      "docs/knowledge-review-2026-10-04/evidence/organizer/results.json",
-      "docs/knowledge-review-2026-10-04/evidence/public-github-consumer.json",
-      "docs/knowledge-review-2026-10-04/evidence/research-reme-ace-claudemem.md",
+      "docs/knowledge-review-2026-10-04/evidence/stage5/consumer.json",
+      "docs/knowledge-review-2026-10-04/evidence/stage5/grok.json",
+      "docs/knowledge-review-2026-10-04/evidence/stage5/producer.json",
+      "docs/knowledge-review-2026-10-04/evidence/stage5/review.md",
       "docs/transcript-reuse-architecture-2026-10-04.md"
     ],
     "initial_research_snapshot_preserved": true
@@ -1072,5 +1045,49 @@
       "general_long_session_quality_and_hardware": "not established by synthetic native or component CI"
     },
     "receipt_policy": "Earlier stage facts and failures remain intact; exact source revisions and measured costs are not rebound to later successful runs."
+  },
+  "current_stage": 5,
+  "public_native_acceptance_stage5": {
+    "stage_order": 5,
+    "observed_through": "2026-10-04T16:46:15.935004+00:00",
+    "status": "passed for one newly authorized pure synthetic task",
+    "documentation_base": "24a1f0f9b2e1b38751f890dc3664ae5c0e31abb3",
+    "authorization": "Subsequent direct user authorization for a new synthetic directory only; earlier stages remain historically unconfigured.",
+    "source_commits": {
+      "codex": "f35ab6f6bc38e1a33d33bcfccc98c828feb9c041",
+      "knowledge": "929bdcb918f2207aea38b02a14bd8e6219fabac4",
+      "content_head": "bb1cf70923b02db2ede69dea112033838d3c0d39",
+      "content_merge": "9b7966f841131d0b942d0f447599b46eddefbef1",
+      "content_tree": "18c0ba36ef5cb67ce7389ff9ca910827f3a09049"
+    },
+    "task_id": "16796d4249feda48b9a855d387f80331dbd3d1700da25d852d091493dcc92bdb",
+    "revision": "c019ce2fb763911e1937205f0cd09451c0895878a85e384750593a15bed64e77",
+    "receipts": {
+      "review": "docs/knowledge-review-2026-10-04/evidence/stage5/review.md",
+      "producer": "docs/knowledge-review-2026-10-04/evidence/stage5/producer.json",
+      "grok": "docs/knowledge-review-2026-10-04/evidence/stage5/grok.json",
+      "consumer": "docs/knowledge-review-2026-10-04/evidence/stage5/consumer.json"
+    },
+    "actual_boundaries": {
+      "capture": "Only post-activation assistant final; earlier launch prompt/commentary excluded by activation cutoff.",
+      "grok": "Natural bot report plus exact GitHub merge/check/tree confirmation; no separate GitHub APPROVE review or comment.",
+      "producer_outbox": "submitted with zero reconciliations at final readback; feed/public revision activation does not rewrite that status.",
+      "consumer": "One execution, installed normal CLI HTTPS sync, predefined Store query/explain and unchanged repeat; zero pipeline/native consumer model calls in controlled paths, not global provider billing.",
+      "quality": "One synthetic sample; no new private history, hardware measurement, general long-session benchmark, platform matrix or long-term scheduler/resource SLA."
+    },
+    "principles_review": {
+      "git_blob": "62cdd5ae40553df2f0f7f7d022141123792d2944",
+      "sha256": "db1fadfb34b46ff49e6e2a113b69c5b684b8f9f13be118bd037f574851b7c98d",
+      "file": "docs/knowledge-review-2026-10-04/evidence/stage5/review.md",
+      "all_nine_reviewed": true
+    },
+    "prior_stage_objects_preserved": true
+  },
+  "previous_document_freeze": {
+    "merged_commit": "24a1f0f9b2e1b38751f890dc3664ae5c0e31abb3",
+    "manifest_sha256": "a0b5b81ce0c5fdad954db76da3d27b270609f1b9a0c9d4f84f402e94f6abd504",
+    "artifact_count": 33,
+    "reviewed_pr_scope_files": 34,
+    "all_four_stage_objects_preserved": true
   }
 }

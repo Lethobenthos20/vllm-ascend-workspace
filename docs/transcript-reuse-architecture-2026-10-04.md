@@ -1,6 +1,6 @@
 # Transcript 到共享经验：宏观架构与组件组合
 
-日期：2026-10-04，最终部署回读于北京时间10月5日。状态：core、Codex及公开内容迁移已合入，正式安装和Hook信任、原有调度器一次同步、独立公共GitHub消费者均有实际证据；Grok现有三个routine已切换。选定真实K3材料和纯合成原生Stop到本地Git的历史验收保持原版本。新格式公开Stop→PR→Grok事件审查合入仍未验收，正式贡献范围尚未选择。下文区分目标职责、已落地组件和实际结果。
+日期：2026-10-04，验收更新至北京时间10月5日。core、Codex及公开内容迁移已合入，正式安装和旧阶段证据保持原版本。用户后续授权的新合成目录已完成正常Stop→自动PR39→现有Grok自然审查合入→独立HTTPS消费，精确main为 `9b7966f`；该[Stage5回执](knowledge-review-2026-10-04/evidence/stage5/review.md)只覆盖一个合成样本及首次激活之后的合格公开正文。下文区分目标职责、历史阶段和当前实际结果。
 
 **当前组合：ReMe 管Markdown材料的分块、文件图与派生检索，LangMem 管小模型增量索引，Git/GitHub 与现有 Grok 管共享和维护，MindIE 保留宿主接入、规范经验包与事务边界、单一队列及操作回执。** Gitleaks 继续承担既有凭据检测。通过裁剪和定点改造接成一个模块，不同时运行几套完整记忆系统。
 
@@ -159,6 +159,7 @@ ReMe以进程内文件/检索能力接入；LangMem是同一本地worker调用�
 
 | 结果 | 已验证 | 尚未据此证明 |
 | --- | --- | --- |
+| Stage5公开原生闭环 | 后续明确授权的新合成目录经正常Stop、一次索引、自动PR39、Grok自然处理合入；独立HTTPS消费者完整375字节正文/哈希匹配，2→4更正及硬件未知保留 | 私有业务公开授权、整个启动会话、普遍检索质量或真实硬件；旧阶段表项仍按其原始范围理解 |
 | 收集与保留 | 四个显式选定的真实K3任务，经原生parser读取全部快照；最终81块全部建立索引，材料保持失败、更正和未完成表述 | 任意私有业务语义都能由规则自动识别、所有未来Harness格式均已适配 |
 | 索引与费用可见 | Luna共35次原生worker调用，包含一次3个源块却返回4个索引的明确失败及一次显式重试；保留658,424 input / 33,219 output tokens，未知调用为0 | 提供商内部请求次数、恒定价格、货币费用推断，或所有摘要均准确的认证 |
 | 本地可发现性 | 12个技术查询均找到目标任务并返回材料片段；ReMe为实际固定上游组件 | 通用召回基准、任意自然语言问法或大规模排名质量 |
@@ -172,7 +173,7 @@ ReMe以进程内文件/检索能力接入；LangMem是同一本地worker调用�
 
 **材料→小模型索引→ReMe检索→独立本地Git消费者已有真实数据证据；正常原生Stop到本地Git独立消费另有纯合成验收。** 后者实际版本为Codex `351e9f8` / core `d07934b`，一次索引耗时12,857 ms、8,835 input / 232 output tokens，和前述35次历史调用分开记账。首次launcher身份继承错误、首次消费者尚未同步的空结果，以及发现并修复的updater错误退出码均保留在[匿名原生回执](knowledge-review-2026-10-04/evidence/native-local-acceptance.json)。同步复用了既有`auto_update.py check`，只验证一次正常入口调用，没有安装OS定时器。
 
-正式部署及公共消费的后续结果见[安装与调度回执](knowledge-review-2026-10-04/evidence/formal-deployment.json)、[公共消费者回执](knowledge-review-2026-10-04/evidence/public-github-consumer.json)和[Grok配置回读](knowledge-review-2026-10-04/evidence/grok-format-cutover.json)。旧updater失效import的失败保留，一次显式恢复完成安装；正常Hook信任与旧scheduler运行分别记账。Grok完整runtime仍有缺失依赖，保存routine与校验通过仅覆盖配置/validator。正式公开贡献范围尚未选择，新格式公开Stop→PR→Grok事件审查合入链路仍未验收。离线转换只复用已有摘要，不增加模型质量或技术事实认证。
+正式部署及公共消费的后续结果见[安装与调度回执](knowledge-review-2026-10-04/evidence/formal-deployment.json)、[公共消费者回执](knowledge-review-2026-10-04/evidence/public-github-consumer.json)和[Grok配置回读](knowledge-review-2026-10-04/evidence/grok-format-cutover.json)。旧updater失效import的失败保留，一次显式恢复完成安装；正常Hook信任与旧scheduler运行分别记账。Grok完整runtime仍有缺失依赖，保存routine与校验通过仅覆盖配置/validator。截至该Stage4记录时，正式公开贡献范围尚未选择，公开原生事件链未验收；后续授权的新合成目录及Stage5成功另见上文，不倒填旧阶段事实。离线转换只复用已有摘要，不增加模型质量或技术事实认证。
 
 ## 配套材料
 
