@@ -1,0 +1,396 @@
+{
+  "schema": "mindie-phased-evidence/1",
+  "date": "2026-10-04",
+  "scope": "Initial research snapshot retained separately from the implemented candidate and observed local acceptance. Remote CI, installed native Hooks and GitHub/Grok acceptance remain pending at this implementation snapshot.",
+  "principles": {
+    "sha256": "15b4b58385846051464c27d06922ad0353bdd6a4031b619ff248c3a65c179741",
+    "tracked_head": "c666e597c8690f7f7c141e0c04ae29e9a0484de7",
+    "uses_dirty_worktree_content": true,
+    "git_blob": "9b21e6ae87ac96ff8bdacc3f4f546384e111a184",
+    "workspace_role": "architecture_primary",
+    "relative_path": "docs/design-principles.md"
+  },
+  "initial_research_snapshot": {
+    "stage_order": 1,
+    "time_scope": "2026-10-04 initial read-only research, before implementation and live-model acceptance; no finer timestamp was recorded.",
+    "original_manifest_sha256": "b4f81e5024274331cb75c7048f3e6065ebaa1a0ce98aa87d785977a3fb8e0e47",
+    "manifest": {
+      "date": "2026-10-04",
+      "scope": "Architecture, current implementation review, official framework source research and synthetic probes; no real model, production installation or external write",
+      "principles": {
+        "sha256": "15b4b58385846051464c27d06922ad0353bdd6a4031b619ff248c3a65c179741",
+        "tracked_head": "c666e597c8690f7f7c141e0c04ae29e9a0484de7",
+        "uses_dirty_worktree_content": true,
+        "workspace_role": "architecture_primary",
+        "relative_path": "docs/design-principles.md"
+      },
+      "sources": {
+        "architecture": {
+          "head": "c666e597c8690f7f7c141e0c04ae29e9a0484de7",
+          "status": [
+            " M AGENTS.md",
+            " M README.md",
+            " M docs/README.md",
+            " M docs/architecture.md",
+            " M docs/design-principles.md",
+            " M docs/next-steps.md",
+            "?? assets/",
+            "?? docs/development-dispatch-2026-09-19.md",
+            "?? docs/first-release-readiness-2026-09-19.md",
+            "?? docs/harness-boundary-and-lifecycle.md",
+            "?? docs/implementation-dispatch-2026-09-20.md",
+            "?? docs/knowledge-component-design-2026-09-19.md",
+            "?? docs/knowledge-loop-improvement-2026-09-20.md",
+            "?? docs/knowledge-sharing-design-2026-09-20.md",
+            "?? docs/overdesign-review-2026-09-20.md",
+            "?? docs/workflow-skill-migration-and-evaluation.md"
+          ],
+          "workspace_role": "architecture_primary",
+          "repository": "mindie-agent/mindie-agent",
+          "relative_path": "."
+        },
+        "knowledge_candidate": {
+          "head": "6a9fb51d41f9787122ef61cbdf81df981d12cded",
+          "status": [
+            " M docs/history-import.md",
+            " M docs/public-transcript-capture.md",
+            " M mindie_knowledge/loop/diagnostics.py",
+            " M mindie_knowledge/loop/history_import.py",
+            " M mindie_knowledge/loop/store.py",
+            " M mindie_knowledge/loop/transcript_capture.py",
+            " M tests/test_diagnostic_snapshot.py",
+            " M tests/test_history_import.py",
+            " M tests/test_public_transcript.py",
+            "?? mindie_knowledge/loop/summary_input.py",
+            "?? tests/test_summary_input.py"
+          ],
+          "workspace_role": "knowledge_research_candidate",
+          "repository": "mindie-agent/knowledge",
+          "relative_path": "."
+        },
+        "codex_candidate": {
+          "head": "56f28c39e68f4435c03a007c9906aa7c92ed85ae",
+          "status": [
+            " M README.md",
+            " M docs/history-import.md",
+            " M docs/public-transcript.md",
+            " M plugins/mindie-agent/scripts/agent_worker.py",
+            " M tests/test_organizer_model.py"
+          ],
+          "workspace_role": "codex_research_candidate",
+          "repository": "mindie-agent/mindie-agent-codex",
+          "relative_path": "."
+        }
+      },
+      "live_remote_main": {
+        "mindie-agent/knowledge": "2637ffa848c0a44bde38ee488112150ee9bc0743",
+        "mindie-agent/mindie-agent-codex": "33de36945e6dd448104c42b7fa49639b00f8ff58",
+        "mindie-agent/knowledge-vllm-ascend": "9aab5e1e2f1298f992b1b41e403c2b1e0232d12c"
+      },
+      "artifacts": {
+        "docs/transcript-reuse-architecture-2026-10-04.md": "a18de1c3e8715e1a1ca2533ec8dfbef55f798450bd97c12ffb5e2663616e33ea",
+        "docs/knowledge-experience-design-2026-10-04.md": "1fd9f2bcf8818c17792aedfaad7475102fbbbe3aa60db30c819fe514dd4c4668",
+        "docs/knowledge-experience-evaluation-2026-10-04.md": "49d56b2e3ef38a780dfcff324e4419a764f5dd0e7d7bb9ef56c910069def64b6",
+        "docs/knowledge-experience-review-2026-10-04.md": "08bc4d1b1501706034cd165c091102e44fddd7f090c123cb1250bbdac104135d",
+        "docs/knowledge-framework-selection-2026-10-04.md": "e7a940242349b873da3df4a3c3aad9ef63d55bbcde9cb68d5f7656bd87c83ac4",
+        "docs/knowledge-review-2026-10-04/evidence/delivery/RUN.txt": "267e7fe9398a8eaed88890c78299203769d1f2c251b52defaefa65448eee85ee",
+        "docs/knowledge-review-2026-10-04/evidence/delivery/framework-comparison.md": "15fb4f6e0076748b620f90e88d47b5fc9141e9b0c1d00a64a53b58e58e1b0520",
+        "docs/knowledge-review-2026-10-04/evidence/delivery/probe_delivery.py": "2c9e72a52e72ddfa089cf08fee5d18a11da480c59fb27dfa48ee3d1e230840f1",
+        "docs/knowledge-review-2026-10-04/evidence/delivery/results.json": "c99b4686befde9a50b1b243389e637071af756aa20bd7acd61e11d08b28a9559",
+        "docs/knowledge-review-2026-10-04/evidence/input/probe_input.py": "9ab01b132af7c385b2ca4a839d02db4a48c3f96125b6da96d2385366e2f429ed",
+        "docs/knowledge-review-2026-10-04/evidence/input/results.json": "98e0375c11da9717b0073f63a7136d360932ac0f60f4be2bf0809dd3b3993c6c",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/README.md": "244315a7b2ed8dc820998920ec5ab9db1d375b09907b445f08ec781b8f1b01b9",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/frameworks.md": "6c4a0620ed2dd049031a2c8ecd61f0617f4b6cd81d7eacc65293c77ba886bb2f",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/README.md": "3523a7f069bb6ed3969800af58e2750469327c45346d964ddfab91f3b1489017",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/first-run-results.json": "9dec3c2346e8df6ef53a318f0f46176ecf447bca2e4baf5652bc1cca2ef9e123",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/resolved-requirements.txt": "424c394da45e57f4d3fe987251c6a40f6f774da430b500ae3b7422900f44b541",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/results.json": "5c25f7cd86117f3f765c142921f9b57b1a4ab8f2e893f15260c85e5e2da8d39f",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/spike.py": "b970843cb7deb184fed27aa5abff5343ecc24a9e67d05a90a9d99df9597ade17",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/probes.py": "074d4c57aaa8dd394d03b6360e6975a0428356768c56c4371362603c2a7a0f07",
+        "docs/knowledge-review-2026-10-04/evidence/organizer/results.json": "3163a53cc14a2dfa52c222970321fc03110fb8857bc6257734f9c233d45c26a3",
+        "docs/knowledge-review-2026-10-04/evidence/research-reme-ace-claudemem.md": "9c30ce62b15a6f5e8dc7f8863ea63f35601946f7cdd5937eab1063f611a65167"
+      },
+      "validation": {
+        "json_parse": "passed",
+        "python_ast": "passed",
+        "local_links": []
+      }
+    },
+    "publication_normalization": "Machine-specific source paths are replaced by workspace roles and relative paths. Initial commits, dirty-state descriptions, measured values and original artifact hashes remain unchanged. original_manifest_sha256 identifies the pre-normalization file, not this JSON serialization."
+  },
+  "implementation_snapshot": {
+    "stage_order": 2,
+    "time_scope": "2026-10-04 implemented candidate and local real-material acceptance, before installed native and GitHub/Grok acceptance.",
+    "sources": {
+      "knowledge": {
+        "repository": "mindie-agent/knowledge",
+        "commit": "0fa011701f4d73f40709df56c969cc3492eb8fab"
+      },
+      "codex": {
+        "repository": "mindie-agent/mindie-agent-codex",
+        "commit": "78d9cffcf207a9ac7ab862f6b158906210693d52",
+        "evidence": "docs/knowledge-review-2026-10-04/evidence/organizer/implementation-review.md"
+      },
+      "content": {
+        "repository": "mindie-agent/knowledge-vllm-ascend",
+        "commit": "b11527d52c6f656ff98e94adad86513e2ab7d90a",
+        "state": "Local reviewed commit; no push attempted for this updated validator pin.",
+        "previous_rejected_push": {
+          "commit": "ca16093b5c0383ab486cea13f8b1a22c61d964ed",
+          "reason": "OAuth token lacks workflow scope",
+          "remote_branch_or_pr_created": false,
+          "report_source": "parent task"
+        }
+      }
+    },
+    "implementation_review": "docs/knowledge-review-2026-10-04/evidence/implementation-review.md",
+    "real_material_acceptance": {
+      "evidence": "knowledge/tests/fixtures/k3-system-acceptance-2026-10-04.json",
+      "source_policy": "Four explicitly selected real K3 development transcripts, read locally; only anonymous measurements are committed.",
+      "host": "macOS arm64",
+      "model": "gpt-5.6-luna",
+      "effort": "low",
+      "real_histories": 4,
+      "blocks": 81,
+      "indexed_blocks": 81,
+      "native_invocations": 35,
+      "native_invocation_definition": "Observed native worker invocations, not independently measured provider-internal requests.",
+      "input_tokens": 658424,
+      "cached_input_tokens": 0,
+      "output_tokens": 33219,
+      "unknown_calls": 0,
+      "retrieval_queries": 12,
+      "retrieval_targets_found": 12,
+      "failures": [
+        {
+          "case": "k3-04",
+          "attempt": 34,
+          "stage": "model-result-validation",
+          "expected_blocks": 3,
+          "returned_indexes": 4,
+          "duplicate_indexes": 1,
+          "model_calls": 1,
+          "input_tokens": 22077,
+          "output_tokens": 1483,
+          "known_billing": true,
+          "automatic_retry": false,
+          "fix": "Native output schema constrains exact array length; identity/order validation still required.",
+          "explicit_retry": "Attempt 35 completed; all prior usage retained."
+        }
+      ],
+      "limitations": [
+        "Rule scanning is not a semantic confidentiality guarantee.",
+        "Twelve task-target retrieval checks do not establish general benchmark recall.",
+        "Local Git consumer result is distinct from later GitHub/Grok acceptance.",
+        "Usage is native reported token counts; no currency price inferred."
+      ],
+      "revision_scope": "The named external artifact commit binds the anonymized measurement record; later platform fixes did not replay these live model calls."
+    },
+    "independent_consumer": {
+      "transport": "local Git file protocol; not GitHub acceptance",
+      "tasks": 4,
+      "queries": 12,
+      "targets_found": 12,
+      "model_calls": 0,
+      "repeat": "unchanged"
+    },
+    "public_content_repackage": {
+      "source_commit": "9aab5e1e2f1298f992b1b41e403c2b1e0232d12c",
+      "content_commit": "b11527d52c6f656ff98e94adad86513e2ab7d90a",
+      "validator_commit": "0fa011701f4d73f40709df56c969cc3492eb8fab",
+      "entries": 20,
+      "blocks": 22,
+      "preserved_body_bytes": 110289,
+      "feedback_files_unchanged": 1,
+      "model_calls": 0,
+      "local_validation": {
+        "entries": 20,
+        "feedback_files": 1,
+        "bytes": 246051
+      },
+      "whitespace_note": "One inherited two-space Markdown hard break remains byte-for-byte; changed CI and documentation pass whitespace checking."
+    },
+    "remaining_acceptance": {
+      "remote_platform_ci": "All remote jobs for current core 0fa011701f4d73f40709df56c969cc3492eb8fab are pending; earlier-head partial results are retained separately.",
+      "installed_plugin_and_native_hooks": "pending; the parent reported that a locked host prevents the remaining native UI acceptance",
+      "github_publication_and_new_workflow_dispatch": "pending; workflow-scope authorization rejection recorded by the parent task",
+      "grok_event_review_and_merge": "pending",
+      "environment_boundary": "Missing workflow authorization and a locked host are observed acceptance environment blockers, not inferred product defects."
+    },
+    "receipt_policy": "Later external acceptance must be appended with exact revisions and observed receipts; it must not overwrite this snapshot or the initial research snapshot.",
+    "remote_ci_observed": {
+      "pr_head": "f72445403fe9069f0abaa224306943e7de608500",
+      "checkout": "9de371bf3369d434e7176fba3fac088b2881bf13",
+      "base": "2637ffa848c0a44bde38ee488112150ee9bc0743",
+      "scope": "Partial remote results; these jobs checked out the PR merge commit, not the bare branch head. Overall CI remains pending Windows fixes.",
+      "jobs": [
+        {
+          "job": "Ubuntu contracts",
+          "passed": 622,
+          "skipped": 9,
+          "warnings": 1,
+          "seconds": 311.54,
+          "log": "/tmp/mindie-f724-linux-passed.log"
+        },
+        {
+          "job": "macOS contracts",
+          "passed": 622,
+          "skipped": 9,
+          "warnings": 1,
+          "seconds": 446.09,
+          "log": "/tmp/mindie-f724-macos-passed.log"
+        },
+        {
+          "job": "Package checks",
+          "passed": 622,
+          "skipped": 9,
+          "warnings": 1,
+          "seconds": 391.74,
+          "log": "/tmp/mindie-f724-package-passed.log"
+        }
+      ],
+      "windows": {
+        "status": "failed at f724; production Git newline and visible-failure fixes committed in ec5; later-head outcomes are recorded separately",
+        "known_failure": "Git CRLF package contract",
+        "report_source": "parent task",
+        "partial_counts_before_first_reported_failure": {
+          "passed": 107,
+          "skipped": 23
+        },
+        "final_counts": null
+      },
+      "fix_commit": "ec5f33e9d6a329c0fb48cea67cba66113e70a5b9"
+    },
+    "known_findings": [
+      {
+        "id": "markdown-raw-byte-integrity",
+        "affected_commit": "ec5f33e9d6a329c0fb48cea67cba66113e70a5b9",
+        "status": "resolved in the named fix commit; affected local tests passed",
+        "finding": "Path.read_text newline normalization could hide changed raw Markdown bytes from local export and ReMe pre-validation.",
+        "principle": 9,
+        "report_source": "parent task and delivery reviewer",
+        "fix_commit": "0fa011701f4d73f40709df56c969cc3492eb8fab",
+        "fix": "Six Markdown read/compare sites and ReMe pre-validation now read raw bytes and explicitly decode UTF-8. JSON behavior is unchanged.",
+        "validation": {
+          "affected_tests_passed": 52,
+          "windows_longpath_fixture_tests_passed": 1,
+          "asserted_behavior": "CRLF corruption of a block or manifest fails get/export/search/reinstall without advancing the current pointer or cache.",
+          "scope": "Targeted local validation; not new-head remote CI."
+        }
+      }
+    ],
+    "codex_final_pin_validation": {
+      "commit": "78d9cffcf207a9ac7ab862f6b158906210693d52",
+      "knowledge_commit": "0fa011701f4d73f40709df56c969cc3492eb8fab",
+      "exact_install_preflight": "passed",
+      "installed_runtime_tests_passed": 1,
+      "seconds": 2.979,
+      "log": "/tmp/organizer-codex-0fa0-exact-runtime.log",
+      "prior_303_and_26_suites_repeated": false
+    },
+    "remote_ci_additional_observation": {
+      "pr_head": "ec5f33e9d6a329c0fb48cea67cba66113e70a5b9",
+      "platform": "Windows",
+      "status": "failed before completion",
+      "partial_counts_before_failure": {
+        "passed": 110,
+        "skipped": 23
+      },
+      "failure": "Raw Git test fixture did not use the managed Windows long-path Git contract.",
+      "fixture_fix_commit": "0fa011701f4d73f40709df56c969cc3492eb8fab",
+      "report_source": "parent task"
+    }
+  },
+  "external_artifacts": {
+    "knowledge/tests/fixtures/k3-system-acceptance-2026-10-04.json": {
+      "repository": "mindie-agent/knowledge",
+      "commit": "0fa011701f4d73f40709df56c969cc3492eb8fab",
+      "path": "tests/fixtures/k3-system-acceptance-2026-10-04.json",
+      "sha256": "97de7962f717c7db83ff884488c1537c6c38ae7ebb6efcf08b9205cb54da93c4",
+      "url": "https://github.com/mindie-agent/knowledge/blob/0fa011701f4d73f40709df56c969cc3492eb8fab/tests/fixtures/k3-system-acceptance-2026-10-04.json"
+    }
+  },
+  "artifacts": {
+    "AGENTS.md": "a2bdda2f8a18a21ba6d878d3179c117a05fbc007ec6d5a7f1c95146f0e7c87cd",
+    "docs/README.md": "a19977af11c631afe0dde979cda4be4f592c657f5a628867bcc90a7185b454ab",
+    "docs/design-principles.md": "f42829995c69662c580782871ef0185a41526ef01f5e3684f6afb1d07c1f9555",
+    "docs/knowledge-experience-design-2026-10-04.md": "cc5b9bd4752eb4924780ac5bfd497cf3b60a0f62b2e158e96e27b41fdaf0a871",
+    "docs/knowledge-experience-evaluation-2026-10-04.md": "376a9eba5e42fb3332e478109b72edff25eb701e7eda2b5b3ad2ec216941e3b6",
+    "docs/knowledge-experience-review-2026-10-04.md": "5398105244ec0a87440afba23905bd77df7da47548f86146e68a979e69106279",
+    "docs/knowledge-framework-selection-2026-10-04.md": "47c243facba0fb68d90cc32e852313d4036d1b2fa9e06447ba3f3db2188e28c6",
+    "docs/knowledge-review-2026-10-04/evidence/delivery/RUN.txt": "25320dfd2fd7d6be86ec5cccd8c1b1aa2fee68a78fb690b1612a8d7f7e5eb2ab",
+    "docs/knowledge-review-2026-10-04/evidence/delivery/framework-comparison.md": "15fb4f6e0076748b620f90e88d47b5fc9141e9b0c1d00a64a53b58e58e1b0520",
+    "docs/knowledge-review-2026-10-04/evidence/delivery/probe_delivery.py": "2c9e72a52e72ddfa089cf08fee5d18a11da480c59fb27dfa48ee3d1e230840f1",
+    "docs/knowledge-review-2026-10-04/evidence/delivery/results.json": "c99b4686befde9a50b1b243389e637071af756aa20bd7acd61e11d08b28a9559",
+    "docs/knowledge-review-2026-10-04/evidence/implementation-review.md": "4f2e226e9c25698a8dc518b6306e06baaad87d777bad7771a5430d5bda18323d",
+    "docs/knowledge-review-2026-10-04/evidence/input/probe_input.py": "8831e533499ea97bbc935db0fdb73683a476b559713b8b1cf6480d7461a9f813",
+    "docs/knowledge-review-2026-10-04/evidence/input/results.json": "24c089b67e23ea6740909c406d90a6333c8508888e1c8346d07037b2e43bd3d9",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/README.md": "97adf8d26704251e803146bb1512d0ba4ded6ea358b80f935505ca2f3d2e217b",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/frameworks.md": "6c4a0620ed2dd049031a2c8ecd61f0617f4b6cd81d7eacc65293c77ba886bb2f",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/implementation-review.md": "ee50d3a517648ffec4dc9d8760122e7c566de4775a31b56b60c7af73ce9fb1cf",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/README.md": "3523a7f069bb6ed3969800af58e2750469327c45346d964ddfab91f3b1489017",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/first-run-results.json": "9dec3c2346e8df6ef53a318f0f46176ecf447bca2e4baf5652bc1cca2ef9e123",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/resolved-requirements.txt": "424c394da45e57f4d3fe987251c6a40f6f774da430b500ae3b7422900f44b541",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/results.json": "5c25f7cd86117f3f765c142921f9b57b1a4ab8f2e893f15260c85e5e2da8d39f",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/langmem-spike/spike.py": "b970843cb7deb184fed27aa5abff5343ecc24a9e67d05a90a9d99df9597ade17",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/probes.py": "bf510a89b1db9e68a0d3ff645fbb9a077f51442c3a212f109e59b1901eb8164f",
+    "docs/knowledge-review-2026-10-04/evidence/organizer/results.json": "3163a53cc14a2dfa52c222970321fc03110fb8857bc6257734f9c233d45c26a3",
+    "docs/knowledge-review-2026-10-04/evidence/research-reme-ace-claudemem.md": "585a25339d08ff9d41bccc7af72fbab7792903c7cd1647e3dbfd7411c0d57f9c",
+    "docs/transcript-reuse-architecture-2026-10-04.md": "0e2775f8a34702f46ac0f5f940a3c41ddc82f39517db2178901d7165ceb9670b"
+  },
+  "validation": {
+    "json_parse": "passed",
+    "python_ast": {
+      "status": "passed",
+      "files": 4,
+      "scope": "Syntax only; research probes were not rerun."
+    },
+    "local_links": {
+      "status": "passed",
+      "markdown_files": 18,
+      "checked": 48,
+      "missing": []
+    },
+    "external_links": {
+      "distinct_references": 136,
+      "scope": "Retained primary-source citations were not all refetched; fixed acceptance JSON bytes were verified from the named Git commit."
+    },
+    "public_data_scan": {
+      "status": "reviewed findings; no unresolved findings",
+      "validator_commit": "0fa011701f4d73f40709df56c969cc3492eb8fab",
+      "checked_text_files": 34,
+      "scope": "All tracked/new UTF-8 text files, plus explicit home-directory and raw-transcript path checks. Product scan rules are unchanged.",
+      "mechanical_findings": 63,
+      "reviewed_finding_classes": {
+        "retrieval_metric_not_host": 3,
+        "recorded_synthetic_redaction_placeholder": 2,
+        "repository_evidence_path": 11,
+        "public_npm_package_version": 2,
+        "public_component_names": 1,
+        "public_source_url": 42,
+        "declared_synthetic_key_boundary_canary": 1,
+        "public_reme_version": 1
+      },
+      "machine_path_or_raw_transcript_references": 0,
+      "unresolved_findings": 0
+    }
+  },
+  "workspace_roles": {
+    "architecture_primary": {
+      "repository": "mindie-agent/mindie-agent",
+      "meaning": "Initial architecture and current principle source; dirty working-copy content was read only."
+    },
+    "architecture_docs_candidate": {
+      "repository": "mindie-agent/mindie-agent",
+      "meaning": "Isolated documentation worktree used for public evidence edits."
+    },
+    "knowledge_research_candidate": {
+      "repository": "mindie-agent/knowledge",
+      "meaning": "Initial pre-implementation knowledge candidate with recorded source hashes and local changes."
+    },
+    "codex_research_candidate": {
+      "repository": "mindie-agent/mindie-agent-codex",
+      "meaning": "Initial pre-implementation Codex candidate with recorded source hashes and local changes."
+    }
+  }
+}
