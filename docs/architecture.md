@@ -1,6 +1,8 @@
 # MindIE Agent architecture
 
-Current design, revised 2026-09-29. This replaces the earlier implementation plan from Issue #195; history remains in Git. The [nine inherited VAWS principles](design-principles.md) govern every adapter. [Implementation status](implementation-status.md) records evidence separately; the simplifications below are requirements, not claims of completed acceptance.
+Current design, revised 2026-10-04. This replaces the earlier implementation plan from Issue #195; history remains in Git. The [nine inherited VAWS principles](design-principles.md) govern every adapter. [Implementation status](implementation-status.md) records evidence separately; the simplifications below are requirements, not claims of completed acceptance.
+
+The [complete-material design](transcript-reuse-architecture-2026-10-04.md) defines the current transcript package, ReMe/LangMem boundaries and explicit history import. The implementation is merged; formal installation, public-feed consumption and native acceptance are recorded separately. The earlier native test does not establish the new public Stop-to-Grok contribution loop.
 
 ## Product and normal use
 
@@ -38,9 +40,8 @@ flowchart LR
     R --> C
     C -->|Configured and enabled| H["Bounded Stop notification<br/>public task increment only"]
     H --> L["Harness parser selects public messages<br/>local rules redact and save the body"]
-    L --> P["Automatically propose a GitHub PR"]
-    L -.-> M["Adapter-owned summary model<br/>title and retrieval summary only"]
-    M -.-> P
+    L --> M["LangMem through the native small model<br/>index complete new blocks and short navigation"]
+    M --> P["Complete indexed package<br/>automatically propose a GitHub PR"]
     P --> B["Existing Grok Bot reviews and merges"]
     B --> K["Public Markdown domain repository"]
     K --> S["Local synchronization and rebuildable index"]
@@ -66,32 +67,47 @@ storage, model input or publication; repository review cannot undo a secret
 uploaded in an earlier commit. Rule scanning cannot establish the publicness of
 proprietary meaning, so existing project authorization remains necessary.
 
-Only the title and retrieval summary may come from an adapter-owned model.
-The adapter maintains its model and effort choice (currently GPT-6-Luna with
-low effort for Codex); users do not configure a separate summary model. It cannot
-write the body, inherit the business model's reasoning settings or block capture/publication. With no supported channel,
-the introduction is a labeled source excerpt. Large summary input may use
-explicitly labeled first/last excerpts; the full body stays intact. One settled
-body version gets at most one summary attempt, including across restarts.
-Claims remain attributed and uncertainty is preserved. Other harnesses require
-their own projection and acceptance; their existing implementation is not proof
-that this Codex path works.
+Only block retrieval headers and short task navigation may come from the
+adapter-owned model. LangMem processes each complete new batch plus the previous
+short navigation through the existing native Harness; it never rewrites the
+body or rereads all prior material for a final merge. The merged Codex implementation
+uses `gpt-5.6-luna` with low effort independently of the business model.
+Required indexing failure does not prevent local capture, but the incomplete
+package cannot publish. There is no source-excerpt or first/last fallback.
+Known usage and failed or uncertain outcomes remain recorded; a saved returned
+response resumes local application without another call. Failed or uncertain
+native calls require explicit retry.
+
+Live Stop intake and explicit historical import share the same projection,
+redaction, incremental queue and package logic. History import requires an
+explicitly selected source and reuses existing contribution scope; it does not
+activate historical sessions or discover unrelated history. Consumers reuse
+producer headers and build only local ReMe indexes, without another model call.
+Claims remain attributed and uncertain. Other Harnesses require their own
+adapter update and acceptance; this Codex implementation does not establish that evidence.
 
 Publishing uses the already prepared public body. Creating or updating the PR is mechanical and does not need another model rewriting pass. The existing Bot reviews content rather than manufacturing a second corpus-processing pipeline.
 
 ## Public records and lightweight local state
 
-Public entries are ordinary Markdown. Keep a clear title, retrieval summary and the knowledge/experience distinction. Optional `conditions` holds relevant software versions or source commits; absent values are allowed. Device choices, shapes, seeds, tolerances and command details belong in the body.
+Public entries are complete ordinary Markdown task packages: one navigation manifest binds ordered stable material blocks, their hashes and fallible retrieval headers. Keep a clear title, retrieval summary and the knowledge/experience distinction. Optional `conditions` holds relevant software versions or source commits; absent values are allowed. Device choices, shapes, seeds, tolerances and command details belong in the body.
 
 Local ownership, session provenance, retry bookkeeping, authorization and receipts remain local. Do not expose internal producer IDs, empty source arrays or routine lifecycle fields as public content. An entry's identity must support reference and feedback, but its exact storage belongs to the knowledge component contract; changing a title is not a required lifecycle step.
 
-A confirmed PR head/path/content receipt is sufficient to compact the submitted local body and capture material; do not wait for merge. Preserve newer unsent observations. The remote owns the submitted body: later additions first reconcile the current PR state/head or merged main, then apply only the unsent observations to that remote version. Restoring an old submitted body can reintroduce a passage the Bot redacted and is not a valid continuation strategy. Keep a small per-entry receipt and continuation cue, not a parallel long-lived draft history. Feed refresh replaces the published local cache without erasing unsent observations.
-
+A submission receipt records the exact PR head and complete package. Current
+local material remains available until the confirmed public feed supplies that
+revision; resolved frozen-send payloads can then be retired without another
+publication. Later additions use the current valid feed package and append only
+new admitted material. Independent remote changes are checked at the exact
+head; conflicting packages require review and are never silently rewritten or
+merged by a second model. Keep current authority files and necessary unresolved
+send payloads, not a per-revision body archive. Withdrawn material is unavailable
+and superseded fixed references expire explicitly.
 Unknown write outcomes retain the minimum reconciliation material and are checked before another write. Transient network and local staging failures resume quietly through the existing background worker with durable backoff, per-attempt timeouts and stable operation identities. A local export reservation is not a sent receipt and must not permanently consume material before an outbox exists. Neither recovery nor plugin update resets the capture boundary or permits replay of failed model work. Content rejection and deliberate remote removal are not transient failures: do not reopen or republish the rejected content automatically.
 
 Contribution remains a persistent opt-in choice. Routine work needs no per-entry approval, discard decision or batch management. Confirmed submission cleanup and minimum duplicate-prevention receipts are internal responsibilities.
 
-Public Git caches and indexes are rebuildable. SQLite may provide small transactions/indexes; replacing it with an equally complex JSON database would not simplify the product.
+Markdown files are the body authority. SQLite holds small cursor, queue and outcome transactions; ReMe owns derived file/chunk/BM25 retrieval in the same process. Derived caches may contain material text and are rebuildable; no raw Harness transcript archive or second body database is introduced. LangMem is used as a function, without another graph store or background service.
 
 ## Feedback and maintenance
 
