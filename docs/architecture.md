@@ -2,7 +2,7 @@
 
 Current design, revised 2026-10-04. This replaces the earlier implementation plan from Issue #195; history remains in Git. The [nine inherited VAWS principles](design-principles.md) govern every adapter. [Implementation status](implementation-status.md) records evidence separately; the simplifications below are requirements, not claims of completed acceptance.
 
-The [complete-material design](transcript-reuse-architecture-2026-10-04.md) defines the current transcript package, ReMe/LangMem boundaries and explicit history import. Its implementation candidate and measured acceptance are recorded separately; older native evidence does not establish acceptance of this cutover.
+The [complete-material design](transcript-reuse-architecture-2026-10-04.md) defines the current transcript package, ReMe/LangMem boundaries and explicit history import. The implementation is merged; formal installation, public-feed consumption and native acceptance are recorded separately. The earlier native test does not establish the new public Stop-to-Grok contribution loop.
 
 ## Product and normal use
 
@@ -70,7 +70,7 @@ proprietary meaning, so existing project authorization remains necessary.
 Only block retrieval headers and short task navigation may come from the
 adapter-owned model. LangMem processes each complete new batch plus the previous
 short navigation through the existing native Harness; it never rewrites the
-body or rereads all prior material for a final merge. The current Codex candidate
+body or rereads all prior material for a final merge. The merged Codex implementation
 uses `gpt-5.6-luna` with low effort independently of the business model.
 Required indexing failure does not prevent local capture, but the incomplete
 package cannot publish. There is no source-excerpt or first/last fallback.
@@ -84,7 +84,7 @@ explicitly selected source and reuses existing contribution scope; it does not
 activate historical sessions or discover unrelated history. Consumers reuse
 producer headers and build only local ReMe indexes, without another model call.
 Claims remain attributed and uncertain. Other Harnesses require their own
-adapter update and acceptance; this Codex candidate is not that evidence.
+adapter update and acceptance; this Codex implementation does not establish that evidence.
 
 Publishing uses the already prepared public body. Creating or updating the PR is mechanical and does not need another model rewriting pass. The existing Bot reviews content rather than manufacturing a second corpus-processing pipeline.
 

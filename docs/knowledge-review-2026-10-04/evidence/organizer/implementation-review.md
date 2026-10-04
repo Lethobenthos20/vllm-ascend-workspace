@@ -4,7 +4,7 @@ Date: 2026-10-04. Scope: the LangMem worker/outcome ledger, deletion of the lega
 
 Principles re-read from the current primary workspace: `docs/design-principles.md`, HEAD `c666e597c8690f7f7c141e0c04ae29e9a0484de7` plus the current uncommitted principle 9 and development-review expansions. File SHA-256 `15b4b58385846051464c27d06922ad0353bdd6a4031b619ff248c3a65c179741`, Git blob `9b21e6ae87ac96ff8bdacc3f4f546384e111a184`. The previous `bbe8...` hash is not the reviewed current text.
 
-Reviewed current commits: knowledge `0fa011701f4d73f40709df56c969cc3492eb8fab`; Codex `78d9cffcf207a9ac7ab862f6b158906210693d52`. Codex is a local commit only; this agent did not push it or create a PR. The exact knowledge commit is installed in the shared test venv, alongside remote-dev `3c1a3543322a6d3a954715642a679336b0c5f830`. Earlier full-suite and targeted evidence retains its original revision below; neither suite was rerun for this final pin refresh.
+The sections through the historical source-hash table preserve the earlier knowledge `f246baea38247ed9c09e4c62d3d769717378f5b2` / Codex `493c97e95b4557368155377658ff3f75005db575` review and its then-local installation state. Their “final” and “unexecuted” descriptions apply to that phase only. The later native acceptance, CLI correction and current draft PR are recorded in the closing section; earlier full-suite and targeted evidence retains its original revision.
 
 ## Resulting boundaries
 
@@ -75,7 +75,13 @@ The affected principles were rechecked against this core delta and the four-refe
 
 Actual final validation: exact `uv pip install --no-deps` succeeded; preflight confirmed core/Kimi fixtures and installed core/remote-dev commits. The installed-runtime exact-commit test passed **1 test in 2.979 seconds**, `/tmp/organizer-codex-0fa0-exact-runtime.log`. The final Codex diff contains only four pin replacements and passes `git diff --check`. The prior 303-test, 26-test and ec5f one-test records above retain their original revisions; none is relabeled as a rerun at this final pair. This agent did not perform native inventory, a model call, plugin installation, default configuration/consent writes, deployment or publication during this pin refresh. The prepared synthetic native plan is still unexecuted.
 
-## Reviewed final source hashes
+## Final fixture-only pin
+
+Final Codex `493c97e95b4557368155377658ff3f75005db575` updates only the same four pins to core `f246baea38247ed9c09e4c62d3d769717378f5b2`. The core diff from `0fa0117` changes only `tests/community/conftest.py`; production bytes are unchanged. The previous nine-principle and material-integrity review therefore retains its behavior boundary. Validation is proportionate to this fixture/pin change: no lifecycle, native model or full-suite rerun was added.
+
+Exact installation with `uv pip install --no-deps` succeeded (`/tmp/organizer-codex-f246-install.log`). Preflight passed (`/tmp/organizer-codex-f246-preflight.log`) and the installed-runtime exact-commit test passed **1 test in 2.903 seconds** (`/tmp/organizer-codex-f246-exact-runtime.log`). `git diff --check` passed. All earlier 303/26 and incremental verification records retain their original commit pairs. This Codex commit remains local and was not pushed by this agent. The final synthetic native plan was syntax-checked only and kept only in the uncommitted local private acceptance working area; no native task, plugin installation or default configuration/consent write was performed.
+
+## Historical source hashes at core f246 / Codex 493
 
 ```text
 knowledge/mindie_knowledge/materials/reme_index.py 1179f74c5b47f99ff525f2dd56aa8b334cba94d483200bd30bc4646b4bca2136
@@ -89,7 +95,7 @@ knowledge/mindie_knowledge/community/gitops.py 1e48e5a00dde779a8b211427b799028d5
 knowledge/tests/test_material_summarizer.py 26c69eae7288c44094401651ab4efbec56c78bb069938eb4fd31a03819a961f9
 knowledge/tests/test_summary_budget.py 624bfda31cca3181d48875c688b3e750b1f605d4d966ad1dc2cffd00bb918337
 knowledge/tests/test_summary_recovery.py fa6468b07b124a0bec968a3c98f68e012af71ca0318259360ea9e56bd159f79c
-codex/.github/workflows/tests.yml e4d261788ada50ec7433f1d773ada4e9bb3aceff10b16d3afcfd32e94848a66c
+codex/.github/workflows/tests.yml 9b9330794a16ec7caa1fa70447b67022e51fed4c854b17b27610d6e845397678
 codex/README.md 58abca31c637c991703ebc1d019921349b1b2920f1ec5bece4f52332d36d9ab7
 codex/docs/history-import.md 601b73b5ca64fe9f99543b903693432c1de602da0ba3c797149009efa1bf26f5
 codex/docs/native-business-acceptance.md b3e4c3f79aa599134244e21603c154ca9f65f26132e36aa514e3cb149e70e660
@@ -103,9 +109,9 @@ codex/plugins/mindie-agent/scripts/process_guard.py 4c9641243311698c04b12813d212
 codex/plugins/mindie-agent/scripts/runtime_probe.py 5c449763f315241aaf8a17dc008509b0e6d8e7c670db9fe11ca5912f29c61fc5
 codex/plugins/mindie-agent/scripts/setup.py f5a2ff8ce3f04307296102e88010166baffc537f166d6bb44fce073c18901bd2
 codex/plugins/mindie-agent/skills/mindie-agent/SKILL.md 72f2f967e010f950e6988ede9bbbb8a120c16db40585a872da03b0f8beeca58c
-codex/runtime-requirements.txt da7abbedf0710b2613dd5cf5815837b8d24319eddb4df0510bc399175dd228b5
+codex/runtime-requirements.txt a68e648932ccb5bb74731317df9412df4b27119ffc590b88ba263b029e3f3475
 codex/tests/k3_material_fixture.py d0ca80d94de19aeecbba446c5f3d3a9ed32a9551d3a82bfaecb4d375d2f40f4e
-codex/tests/preflight.py c5236e0feefa0c0c0393e21b9939167b308a8f52d6e4d29b562171452ca6ab27
+codex/tests/preflight.py 591b186575a5baf3479c95e804119d1649a5bc67d28b9d9f8fbac8930342a8ca
 codex/tests/process_fixtures.py 7218a9d30b5b084ce6ce6c7bbea41aa3556f17c962820fab9c824f24d64b7fdc
 codex/tests/test_auto_update.py c786578a3bebcb816ce14abc42343f72fe4225b7fac6eda1badcff3e131ced34
 codex/tests/test_entry_bounds.py a384991be5d3d7d906ade2d98722456d6063e30e2f764a09b455fce4572380c7
@@ -113,7 +119,7 @@ codex/tests/test_feed_sync.py 0b638b14f6fc3dafdd1088f7bc2357bb4c5f45f76ccc7797f6
 codex/tests/test_history_import.py cdd0f4dbfaf3700ad6aa66a1b669be03e59df48bbcd8fd469f0e1d6408f7593b
 codex/tests/test_organizer_categories.py 5a2502b5604423fbd838b3aea7a800880b53ba51cc1032e208c37207f90382e7
 codex/tests/test_organizer_model.py a4d2af39b69bfc66b2b59ef07e450460e30ae226fe0a3189d53c76c8a6538f9f
-codex/tests/test_parallel_codex_contract.py 882c4cf177c94ad729e11335735131759dad2e36e7372a89aea2959a12e35b5d
+codex/tests/test_parallel_codex_contract.py 375eb0ec92a42a478a6fe960d3e7569862ff3a9c6b97f608454f4db3e544379b
 codex/tests/test_runtime_compatibility.py 30ede69a644c75855333e668175bfdce0fe33c9043255fae7fbf36324435f5ac
 codex/tests/test_runtime_probe.py 6844fe99041c73494bb8f9080041d41096a985f0a580944707c43c933c8867b9
 codex/tests/test_service_entry_lifetime.py 01830b66d8f5a78dc7c933617d769122cda213e20c278c3d388e1e8285941393
@@ -125,3 +131,30 @@ codex/tests/test_status_errors.py 83f485b0104b64802b82cac0fbb7bdb3e25296a211a500
 ```
 
 Deleted obsolete fixture: `tests/test_fts_probe.py`; its process-failure honesty check remains in `tests/test_runtime_probe.py`.
+
+
+## Historical native acceptance, CLI correction and pre-final candidate
+
+The actual native acceptance used **Codex `351e9f8aeb422c879fef382d3c9aea784a6008ae` / core `d07934b6ff6510d9d666c30560e3aa072a75ce60`**. The [anonymous receipt](../native-local-acceptance.json) contains only synthetic task references and aggregate counts. Normal native Stop admitted one capture, one real `gpt-5.6-luna` / low call produced complete indexes in 12,857 ms (8,835 input / 232 output tokens), and the local Git outbox submitted one validated package. One normal `auto_update.py check` owner invocation performed the initial feed sync; a separate post-fix check later verified unchanged feed and nonzero plugin failure. After that initial sync, a separate native consumer queried a feed-origin, non-supplemental result and explained the same reference. It preserved initial two-shard and corrected four-shard claims with hardware verification still unknown. Consumer capture, batches, tasks, summary attempts and outbox counts were all zero, with no sharing configuration or consent record.
+
+The first producer inherited the launcher’s parent identity and correctly failed closed before capture. A new independent process omitted those inherited identity variables; no host identity was fabricated or Stop manually replayed. The first consumer observed an empty feed because preparation omitted the existing sync owner. Both failed fixture attempts and their business-model usage remain in the receipt; neither counts as successful acceptance. Business-task input/output, cached-input and reasoning-output counters are separate from the one index-worker call and the 35 historical calls; cached and reasoning counters are subsets, not extra totals.
+
+That normal updater invocation exposed a real adapter failure: feed synchronization succeeded, the file-only plugin check returned `check_failed`, but the CLI exited 0. Commit `801d2b4b8020c9d6893f4d3db3d103c445da3e49` adds that state to the existing failure set. The regression failed before the fix, then all 13 update-recovery tests passed in 1.414 seconds. The actual fixed CLI exited 1 while preserving feed `unchanged` and plugin `check_failed`; the whole updater is explicitly not successful. No update installation, automatic retry or extra model call was used to obscure the failed plugin check.
+
+Codex `35ab33050e3a42a2b01f858c1c7a605f1a84fb7c` includes that fix and pins core `929bdcb918f2207aea38b02a14bd8e6219fabac4` in the same four install/CI/preflight/runtime-assertion references. Core `d079` to `929` changes only three test fixtures: bounded Git writes and local line-ending settings, atomic PID publication, and explicit UTF-8 reads. Exact `--no-deps` installation and preflight passed; the installed-runtime contract passed **1 test in 2.866 seconds**. The earlier 303/26 suites and native pair were not rerun or relabeled. [Draft PR18](https://github.com/mindie-agent/mindie-agent-codex/pull/18) was subsequently pushed by the parent task. Its first Linux CI passed exact dependency preflight but exposed a test that read a local updater settings file absent on a clean runner. The then-current candidate `4f7df1355b59618d3a94ee4c97843a6f0b67fd19` changes only that temporary-settings fixture and the CI runner’s failfast option: the four nonzero-exit assertions, once-only test execution and final failed exit remain. Nine targeted tests and AST validation passed; no production code, core pin, installed-runtime or native model rerun was added. Final remote CI is tracked in the main [implementation review](../implementation-review.md).
+
+All nine principles were reviewed again for these later changes. **1–4:** one normal native path and existing updater owner preserve cost and component boundaries; fixtures remove host-environment assumptions without new product commands. **5–7:** no mandatory Skill flow, certification, production consent or extra activation is added; synthetic reference material and zero consumer pipeline calls remain explicit. **8:** the test-only core delta uses existing native evidence and only the changed exact-install boundary is checked. **9:** `check_failed` now reaches the caller as nonzero while completed feed work remains visible; failed launcher/empty-feed attempts and earlier costs stay recorded. No violation remains in the reviewed production/pin delta; remote CI and deployment are separate evidence.
+
+Cleanup stopped the two owned services and removed two temporary plugin registrations, two marketplaces and two exact hook-trust entries; no owned cache roots or services remained. Only scoped temporary settings were removed, with formal plugin settings preserved and isolated evidence retained. No public GitHub business contribution, Grok review, OS scheduler, long-session quality benchmark or real-hardware benchmark was established by this native stage.
+
+## Final merged adapter and formal deployment
+
+Codex PR18 source `783190bac5c387ea3f6918e14d56c7eaaedb09eb` is merged as `f35ab6f6bc38e1a33d33bcfccc98c828feb9c041`. Its tree `17772e776d1b75bcb52683367c1a0974835c4a7c` equals tested PR merge `832c3f32f34104e53c436495be77ff8842c33241`. Final remote CI ran 310 tests on each OS: Linux OK with 12 skips in 158.035 seconds; Windows OK with 6 skips in 334.011 seconds. The actual history-import service and PowerShell output-isolation cases passed. The [four-stage CI receipt](../codex-final-ci.json) retains all earlier failures and exact checkout revisions.
+
+The `4f7` Windows failure imported the body but could not start the required service; its original PermissionError cannot identify the exact Win32 call. Production `14afcba4aca606931164525f353d691b12449a1c` reuses the existing explicit service-launcher Job boundary, reports safe stage/errno/winerror and preserves primary outcomes over cleanup failures. Its local 17-case check passed with 4 platform skips; the next Windows CI passed history/service but hit the outer PowerShell fixture watchdog. Final `783190b` changes only that host-shell test watchdog to the production budget plus 10 seconds. Production Hook 5 seconds and Windows bridge 1.3 seconds remain unchanged; this validates protocol/output/exit isolation and single delivery, not the production cold-start SLA.
+
+[Formal deployment](../formal-deployment.json) records the old controller's failed retired MaintenanceBudget import, followed by one reviewed explicit prepare/install recovery under the existing lock. The failed attempt and next-check value remained; exact source/core/remote-dev selection and native cache bytes passed readback. The normal host Review hooks interface then trusted the formal Stop without bypass or a model turn. Existing launchd runs increased from 117 to 118, exit 0, with matching owner state synced to public main `5273638c81f55cc8b1423d887b6859d51d6f3621` and 20 active feed-origin entries. No manual formal public check or Feed.sync was invoked; no separate launchd stdout/stderr log exists. This supports one observed existing-scheduler sync, not an automatic old-controller upgrade or long-term SLA.
+
+The [independent public consumer](../public-github-consumer.json) separately performed normal installed CLI HTTPS sync, three predetermined Store query/explain checks with complete-body SHA256 matches, and an unchanged second sync. Its capture/material/outbox/owner counts stayed zero; the summary-attempt ledger was not created. Formal and isolated consumer sharing/consent remained absent. Native 351/d079 local evidence above is not relabeled as a new final-f35 native business run. [Grok configuration](../grok-format-cutover.json) is saved and its trusted validator executed successfully, while full runtime dependencies and new public PR event/review/merge acceptance remain separate gaps.
+
+The final affected-principles review preserves all nine earlier conclusions: **1/8**, use existing native evidence and run changed boundaries only; **2/4**, keep Job ownership and installed dependency checks in their existing components; **3**, expose stage-specific results without another user workflow; **5/6**, no mandatory Skill or knowledge certification; **7**, no new private-history admission, sharing consent or model call for deployment/consumption; **9**, retain prior CI, installation, partial dependency and uncertain-diagnosis failures, while recording later success only at its actual revision. Core pin remains `929bdcb918f2207aea38b02a14bd8e6219fabac4`; subsequent core PR60 changed documentation only, and its failed Windows/macOS fixture CI is retained in the main implementation review rather than hidden by the prior production-tree results.

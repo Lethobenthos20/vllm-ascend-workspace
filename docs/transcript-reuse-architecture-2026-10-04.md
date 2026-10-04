@@ -1,6 +1,6 @@
 # Transcript 到共享经验：宏观架构与组件组合
 
-日期：2026-10-04。状态：宏观方案已形成实现候选，已完成选定真实K3历史材料的小模型索引、本地检索与独立本地Git消费者验收；GitHub贡献、Grok事件/合并及原生Hook完整闭环尚待验收。下文区分目标职责、已经落地的组件边界与实际证据，不把本地通过写成生产部署完成。
+日期：2026-10-04，最终部署回读于北京时间10月5日。状态：core、Codex及公开内容迁移已合入，正式安装和Hook信任、原有调度器一次同步、独立公共GitHub消费者均有实际证据；Grok现有三个routine已切换。选定真实K3材料和纯合成原生Stop到本地Git的历史验收保持原版本。新格式公开Stop→PR→Grok事件审查合入仍未验收，正式贡献范围尚未选择。下文区分目标职责、已落地组件和实际结果。
 
 **当前组合：ReMe 管Markdown材料的分块、文件图与派生检索，LangMem 管小模型增量索引，Git/GitHub 与现有 Grok 管共享和维护，MindIE 保留宿主接入、规范经验包与事务边界、单一队列及操作回执。** Gitleaks 继续承担既有凭据检测。通过裁剪和定点改造接成一个模块，不同时运行几套完整记忆系统。
 
@@ -36,7 +36,7 @@
 | **Gitleaks及已有规则** | 已知凭据/路径等检测与脱敏 | 保留跨材料边界所需上下文，统一脱敏结果语言；不宣称可识别全部私有业务文字 |
 | **MindIE适配与经验包边界** | 各Harness身份与范围、增量投影、规范包/哈希、候选文件与已提交指针、单一队列、成本/发布回执 | 权威正文为Markdown；SQLite保留小元数据和必要回执，不镜像正文或实现第二套检索算法 |
 
-当前候选已删除旧正文数据库路径、自有FTS检索、全文重写organizer及其兼容恢复接口。ReMe实际拥有chunk、FileGraph、BM25和派生缓存；LangMem实际承担完整新增批次的摘要算法。运行时不自动导入旧状态，也不并行运行旧算法。
+已合入实现已删除旧正文数据库路径、自有FTS检索、全文重写organizer及其兼容恢复接口。ReMe实际拥有chunk、FileGraph、BM25和派生缓存；LangMem实际承担完整新增批次的摘要算法。运行时不自动导入旧状态，也不并行运行旧算法。
 
 规范任务包、Git完整性绑定、文件候选提交与清理仍是MindIE自有边界代码，不能称为ReMe原生事务实现。它只解决现有授权队列与普通Markdown/Git之间的提交语义；每份当前材料保留一套权威Markdown文件，ReMe派生chunk/index缓存可能包含材料文本，可独立重建，并不表示磁盘只有一份字节副本。本地不另外复制原始transcript，也不为每个revision保留整份正文档案。已修复的边界包括当前manifest丢失被当成新任务、清理路径跟随符号链接，以及清理异常覆盖已提交主错误。
 
@@ -77,7 +77,9 @@ ReMe以进程内文件/检索能力接入；LangMem是同一本地worker调用�
 
 经验包以 `tasks/<task_id>/index.md` 和有序 `blocks/<block_id>.md` 发布。`mindie-material-task/1` manifest嵌入`mindie-entry/3`头部，绑定每块文件哈希、公开来源范围、标题、摘要与索引状态；块使用`mindie-material-block/1`。当前块正文上限为16 KiB并按UTF-8边界无损拆分。包的`status`表示索引处理阶段，不表示业务结论已被验证；失败和不确定性仍由原材料和导航表达。
 
-这是普通文件组织和Git完整性校验，不新增分布式存储服务。对公开仓库中已有的20条经验已生成一次显式离线重新打包的**本地迁移候选** `b11527d52c6f656ff98e94adad86513e2ab7d90a`：保留原正文110,289字节、标题、摘要、conditions和entry_id，形成20包/22块，无新模型调用；反馈仍指向原revision。此前workflow scope权限拒绝尚未解除，此快照仍未push或merge；它不是已上线的公共内容格式。该操作不成为运行时兼容层，也不自动导入私有材料或更旧Git历史。
+块身份绑定不可变文件。维护者或Bot确需脱敏、修正某块正文时，应生成新的block身份和文件，更新manifest的有序块描述、文件哈希、material_digest、entry revision及对应导航，并从当前包移除被替换的旧块。不能在原block身份下改写字节，或只改哈希就把不完整修订标为完成；无法形成完整有效包时保留未合并状态和具体原因。这是既有格式合同，不要求模型重写正文或给普通PR增加另一轮处理。撤下通过删除整个`tasks/<task_id>/`包完成，包括index与全部块；不以`status: retired`或遗留孤立块代替删除，原因留在Git/PR记录中。
+
+这是普通文件组织和Git完整性校验，不新增分布式存储服务。公开仓库已有20条经验的一次离线重新打包已通过[PR37](https://github.com/mindie-agent/knowledge-vllm-ascend/pull/37)合入 `5273638c81f55cc8b1423d887b6859d51d6f3621`，源head `55ac4704d77a7423a06d8cda8d8403b42ac5af4a`：保留原正文110,289字节、标题、摘要、conditions和entry_id，形成20包/22块，无新模型调用；反馈仍指向原revision。固定validator `929bdcb918f2207aea38b02a14bd8e6219fabac4` 的候选检查和[合并后自动工作流](https://github.com/mindie-agent/knowledge-vllm-ascend/actions/runs/37215772292)均实际验证20 entries、1 feedback、246,051 bytes。该操作不成为运行时兼容层，也不自动导入私有材料或更旧Git历史。
 
 正文保留获准且脱敏的公开经历，默认复用业务Agent已经写出的材料。不要为了填满“根因、步骤、验证”模板而再调用模型补造。相同技术问题可能跨多个包，先以搜索和来源关联发现；不要求入库前全部归并成唯一权威主题。
 
@@ -129,7 +131,7 @@ ReMe以进程内文件/检索能力接入；LangMem是同一本地worker调用�
 
 | 路线 | 不作为主线的原因 |
 | --- | --- |
-| 只修现有核心＋LangMem＋FTS | 完整材料/索引管理继续自维护；当前候选已经去掉旧FTS及其运行时兼容，不以沉没成本保护旧架构 |
+| 只修现有核心＋LangMem＋FTS | 完整材料/索引管理继续自维护；已合入实现已经去掉旧FTS及其运行时兼容，不以沉没成本保护旧架构 |
 | 直接开启完整ReMe auto_memory | 原始记录复制、Agent多轮文件编辑、tag、dream等与低成本参考经验目标不同；大面积逆向改造可能形成难维护分叉 |
 | claude-mem整套替换 | 跨Harness和观察队列有价值，但增加私人记忆运行时、持久观察和多环节模型；GitHub多人分享仍需自做 |
 | Mem0/Hindsight整套替换 | 更偏事实抽取、向量/实体推理和长期记忆，增加数据库/派生表示/历史，与当前必要目标不成比例 |
@@ -140,7 +142,7 @@ ReMe以进程内文件/检索能力接入；LangMem是同一本地worker调用�
 
 ## 9. 已落地的参数与尚待验证的范围
 
-| 当前候选已落地 | 依据与剩余边界 |
+| 当前实现已落地 | 依据与剩余边界 |
 | --- | --- |
 | 任务经验包＋稳定Markdown块＋当前短导航 | 完整新增材料无损拆分；正文不由模型改写；追加及头部更新不重读以前正文 |
 | 每批完整输入，一次小模型索引 | 最多8块、序列化prompt 64 KiB；限制作用于批次，不截断整任务，后续块继续排队 |
@@ -160,17 +162,22 @@ ReMe以进程内文件/检索能力接入；LangMem是同一本地worker调用�
 | 收集与保留 | 四个显式选定的真实K3任务，经原生parser读取全部快照；最终81块全部建立索引，材料保持失败、更正和未完成表述 | 任意私有业务语义都能由规则自动识别、所有未来Harness格式均已适配 |
 | 索引与费用可见 | Luna共35次原生worker调用，包含一次3个源块却返回4个索引的明确失败及一次显式重试；保留658,424 input / 33,219 output tokens，未知调用为0 | 提供商内部请求次数、恒定价格、货币费用推断，或所有摘要均准确的认证 |
 | 本地可发现性 | 12个技术查询均找到目标任务并返回材料片段；ReMe为实际固定上游组件 | 通用召回基准、任意自然语言问法或大规模排名质量 |
-| 独立消费者 | 另一客户端只经本地Git文件协议取得4包并完成12次目标查询，模型调用为0；重复同步返回unchanged | GitHub线上传输、Grok收到真实事件、审查和合入main，以及原生Hook到共享的完整闭环 |
+| 独立消费者 | 真实材料阶段本地Git取得4包并完成12次目标查询；最终公共GitHub HTTPS阶段同步精确main的20包，3个预定query/explain核对完整正文哈希；消费者模型调用为0，重复同步unchanged | 公开原生Stop与Grok事件审查合入闭环，以及所有检索问法的质量 |
+| 原生入口与消费 | 独立profile的合成任务经正常Stop、一次Luna索引、本地Git发布及既有updater入口同步后，另一原生任务query/explain成功；消费者采集/索引/outbox均为0 | OS定时器首次启动、公开GitHub传输、正式贡献配置及真实硬件验收 |
+| 公开内容与Grok配置 | 20条既有公开经验无损重打包并合入main；合并后新格式工作流通过；三个既有routine保存的新pin/schema已回读，Bot隔离validator通过 | 新PR事件已交付、Bot自动审查合并、完整Bot runtime安装或新的私有材料获准公开 |
+| 正式安装与同步 | Codex最终merge tree及依赖准确安装；正常宿主界面信任Stop；原有scheduler一次运行同步20条，插件up_to_date | 无人工介入的首次升级、完整独立调度日志、长期SLA或新的原生公开贡献 |
 | 失败与维护 | 无模型正文改写；已返回结果的本地扫描/应用失败不重复付费，未知调用不自动重放；损坏索引显式失败并可单独重建 | 所有操作系统组合、长期资源增长或所有外部服务故障均已验收 |
 
 那次3→4重复索引失败曾产生已知usage，计入35次总数；没有当成未执行自动重试。原生输出schema现约束精确数组长度，仍保留block身份/顺序校验，诊断区分`index-validation`与native执行阶段。显式修复重试后81块完成，但失败证据与费用不抹除。
 
-因此当前结论是**材料→小模型索引→ReMe检索→独立本地Git消费者已取得真实数据证据**。GitHub/Grok与原生完整分享链仍是未完成验收项，不能用本地Git、进程存活、任务计数或模型配置代替。离线公开材料转换只复用已有摘要，不增加模型质量或技术事实认证。
+**材料→小模型索引→ReMe检索→独立本地Git消费者已有真实数据证据；正常原生Stop到本地Git独立消费另有纯合成验收。** 后者实际版本为Codex `351e9f8` / core `d07934b`，一次索引耗时12,857 ms、8,835 input / 232 output tokens，和前述35次历史调用分开记账。首次launcher身份继承错误、首次消费者尚未同步的空结果，以及发现并修复的updater错误退出码均保留在[匿名原生回执](knowledge-review-2026-10-04/evidence/native-local-acceptance.json)。同步复用了既有`auto_update.py check`，只验证一次正常入口调用，没有安装OS定时器。
+
+正式部署及公共消费的后续结果见[安装与调度回执](knowledge-review-2026-10-04/evidence/formal-deployment.json)、[公共消费者回执](knowledge-review-2026-10-04/evidence/public-github-consumer.json)和[Grok配置回读](knowledge-review-2026-10-04/evidence/grok-format-cutover.json)。旧updater失效import的失败保留，一次显式恢复完成安装；正常Hook信任与旧scheduler运行分别记账。Grok完整runtime仍有缺失依赖，保存routine与校验通过仅覆盖配置/validator。正式公开贡献范围尚未选择，新格式公开Stop→PR→Grok事件审查合入链路仍未验收。离线转换只复用已有摘要，不增加模型质量或技术事实认证。
 
 ## 配套材料
 
 - [九个框架的系统选型、组合取舍与一手来源](knowledge-framework-selection-2026-10-04.md)
-- [最初实现review与可复现问题](knowledge-experience-review-2026-10-04.md)：保留为本轮架构变化的来源，不代表当前候选仍有全部旧问题。
+- [最初实现review与可复现问题](knowledge-experience-review-2026-10-04.md)：保留为本轮架构变化的来源，不代表当前实现仍有全部旧问题。
 - [详细流程与行为合同](knowledge-experience-design-2026-10-04.md)：实施参考；与本文方向冲突时以本文为准。
 - [分层验收与迭代方法](knowledge-experience-evaluation-2026-10-04.md)
 - [LangMem隔离接口试接](knowledge-review-2026-10-04/evidence/organizer/langmem-spike/README.md)
